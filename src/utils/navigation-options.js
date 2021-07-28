@@ -3,12 +3,12 @@ import ListIcon from "@material-ui/icons/List";
 const faculityNavOptions = [
   {
     link: "/faculity/faculity-form/create",
-    icon: <AddBoxIcon />,
-    text: "Fill Faculity Form",
+    icon: <AddBoxIcon color="primary"/>,
+    text: "Faculity Evaluation Form",
   },
   {
     link: "/faculity/filled-faculity-list",
-    icon: <ListIcon />,
+    icon: <ListIcon color="primary" />,
     text: "Filled Faculity Evaluation List",
   },
 ];
