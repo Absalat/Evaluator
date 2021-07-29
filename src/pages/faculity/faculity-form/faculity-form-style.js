@@ -3,9 +3,8 @@ const faculityFormStyle = makeStyles((theme) => ({
   card: {
     padding: theme.spacing(2),
   },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
+  title:{
+    fontWeight:"bold"
   }
 }));
 
