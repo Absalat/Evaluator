@@ -1,6 +1,6 @@
 import { Card, Typography } from "@material-ui/core";
 import React from "react";
-import faculityFormStyle from "../faculity-form-style";
+import faculityFormStyle from "../../pages/faculity/faculity-form/faculity-form-style";
 
 const Section = ({ children, title }) => {
   const classes = faculityFormStyle();

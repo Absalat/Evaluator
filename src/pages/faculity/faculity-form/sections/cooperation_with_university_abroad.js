@@ -1,8 +1,12 @@
 import { TextField } from "@material-ui/core";
 import React from "react";
-import Section from "../components/section";
+import Section from "../../../../components/section/section";
 
-const CooperationWithUniversityAbroad = () => {
+const CooperationWithUniversityAbroad = ({
+  onChangeHandler,
+  faculty_exchange,
+  joint_projects,
+}) => {
   return (
     <Section title="Cooperation with university abroad">
       <TextField
@@ -11,6 +15,9 @@ const CooperationWithUniversityAbroad = () => {
         margin="dense"
         label="Faculity exchange"
         fullWidth
+        onChange={onChangeHandler}
+        name="faculty_exchange"
+        value={faculty_exchange}
       />
       <TextField
         variant="outlined"
@@ -18,6 +25,9 @@ const CooperationWithUniversityAbroad = () => {
         margin="dense"
         label="Joint projects"
         fullWidth
+        onChange={onChangeHandler}
+        name="joint_projects"
+        value={joint_projects}
       />
     </Section>
   );

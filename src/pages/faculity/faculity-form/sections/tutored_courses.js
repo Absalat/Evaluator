@@ -1,11 +1,11 @@
 import { Box, Grid, TextField } from "@material-ui/core";
 import React from "react";
-import Section from "../components/section";
+import Section from "../../../../components/section/section";
 
 const TutoredCourses = ({
-  bscTutoredCourse,
-  mscTutoredCourse,
-  phdTutoredCourse,
+  tutored_bsc_courses,
+  tutored_msc_courses,
+  tutored_phd_courses,
   onChangeHandler
 }) => {
   return (
@@ -18,9 +18,12 @@ const TutoredCourses = ({
             type="number"
             margin="dense"
             label="B.Sc course"
-            value={bscTutoredCourse}
-            name="bscTutoredCourse"
+            value={tutored_bsc_courses}
+            name="tutored_bsc_courses"
             onChange={onChangeHandler}
+            inputProps={{
+              min:0
+            }}
             fullWidth
           />
         </Grid>
@@ -31,8 +34,8 @@ const TutoredCourses = ({
             label="M.Sc course"
             margin="dense"
             fullWidth
-            value={mscTutoredCourse}
-            name="mscTutoredCourse"
+            value={tutored_msc_courses}
+            name="tutored_msc_courses"
             onChange={onChangeHandler}
           />
         </Grid>
@@ -43,8 +46,8 @@ const TutoredCourses = ({
             margin="dense"
             label="PhD course"
             fullWidth
-            value={phdTutoredCourse}
-            name="phdTutoredCourse"
+            value={tutored_phd_courses}
+            name="tutored_phd_courses"
             onChange={onChangeHandler}
           />
         </Grid>

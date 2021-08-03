@@ -1,39 +1,39 @@
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
-import Section from "../components/section";
+import Section from "../../../../components/section/section";
 import StudentFeedback from "../components/student_feedback";
 
 const TeachingLearning = ({
   onChangeHandler,
-  teachingQuality,
-  motivation,
-  overallSatisfaction,
-  HardCopyTeachingMaterial,
-  eMaterialTeachingMaterial,
-  fullCourseELearningLectures,
-  partOfCourseELearningLectures,
-  numberOfExcercises,
-  labCourseSupervised,
+  student_feedback_teaching_quality_rating,
+  student_feedback_motivation,
+  student_feedback_overall_satisfaction,
+  teaching_materials_hard_copy,
+  teaching_materials_soft_copy,
+  e_learning_lectures_full_course,
+  e_learning_lectures_part_of_course,
+  tutorial_exercises_num_of_exercises,
+  laboratory_courses_supervised,
 }) => {
   return (
     <Section title="Teaching and Learning">
       <Box mt={2} />
       <StudentFeedback
         label="Teaching Quality"
-        name="teachingQuality"
-        value={teachingQuality}
+        name="student_feedback_teaching_quality_rating"
+        value={student_feedback_teaching_quality_rating}
         onChangeHandler={onChangeHandler}
       />
       <StudentFeedback
         label="Motivation"
-        name="motivation"
-        value={motivation}
+        name="student_feedback_motivation"
+        value={student_feedback_motivation}
         onChangeHandler={onChangeHandler}
       />
       <StudentFeedback
         label="Overall Satisfaction"
-        name="overallSatisfaction"
-        value={overallSatisfaction}
+        name="student_feedback_overall_satisfaction"
+        value={student_feedback_overall_satisfaction}
         onChangeHandler={onChangeHandler}
       />
       <Box mt={2} />
@@ -45,8 +45,8 @@ const TeachingLearning = ({
             type="number"
             label="Hard copy"
             margin="dense"
-            value={HardCopyTeachingMaterial}
-            name="HardCopyTeachingMaterial"
+            value={teaching_materials_hard_copy}
+            name="teaching_materials_hard_copy"
             onChange={onChangeHandler}
             fullWidth
           />
@@ -58,8 +58,8 @@ const TeachingLearning = ({
             label="e-materials"
             margin="dense"
             fullWidth
-            value={eMaterialTeachingMaterial}
-            name="eMaterialTeachingMaterial"
+            value={teaching_materials_soft_copy}
+            name="teaching_materials_soft_copy"
             onChange={onChangeHandler}
           />
         </Grid>
@@ -74,8 +74,8 @@ const TeachingLearning = ({
             label="Full course"
             margin="dense"
             fullWidth
-            value={fullCourseELearningLectures}
-            name="fullCourseELearningLectures"
+            value={e_learning_lectures_full_course}
+            name="e_learning_lectures_full_course"
             onChange={onChangeHandler}
           />
         </Grid>
@@ -86,8 +86,8 @@ const TeachingLearning = ({
             label="Part of course"
             margin="dense"
             fullWidth
-            value={partOfCourseELearningLectures}
-            name="partOfCourseELearningLectures"
+            value={e_learning_lectures_part_of_course}
+            name="e_learning_lectures_part_of_course"
             onChange={onChangeHandler}
           />
         </Grid>
@@ -100,8 +100,8 @@ const TeachingLearning = ({
         label="No. of exercises"
         margin="dense"
         fullWidth
-        value={numberOfExcercises}
-        name="numberOfExcercises"
+        value={tutorial_exercises_num_of_exercises}
+        name="tutorial_exercises_num_of_exercises"
         onChange={onChangeHandler}
       />
       <TextField
@@ -110,8 +110,8 @@ const TeachingLearning = ({
         label="Laboratory courses supervised"
         margin="dense"
         fullWidth
-        value={labCourseSupervised}
-        name="labCourseSupervised"
+        value={laboratory_courses_supervised}
+        name="laboratory_courses_supervised"
         onChange={onChangeHandler}
       />
     </Section>

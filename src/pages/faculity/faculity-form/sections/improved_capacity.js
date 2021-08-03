@@ -1,13 +1,13 @@
 import { Box, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select } from "@material-ui/core";
 import React from "react";
-import Section from "../components/section";
+import Section from "../../../../components/section/section";
 
 const ImprovedCapacity = ({
   onChangeHandler,
-  hdpTraining,
-  entrepreneurshipTraining,
-  otherTraining,
-  higherDegreeEarned,
+  hdp_training,
+  entrepreneurship_training,
+  other_trainings_skills_gained,
+  higher_degree_earned,
 }) => {
   return (
     <Section title="Improved capacity or skills">
@@ -16,9 +16,9 @@ const ImprovedCapacity = ({
         <FormLabel>HDP Training</FormLabel>
         <RadioGroup
           row
-          value={hdpTraining}
+          value={hdp_training}
           onChange={onChangeHandler}
-          name="HDPTraining"
+          name="hdp_training"
         >
           <FormControlLabel
             value="yes"
@@ -37,9 +37,9 @@ const ImprovedCapacity = ({
         <FormLabel>Entrepreneurship Training</FormLabel>
         <RadioGroup
           row
-          value={entrepreneurshipTraining}
+          value={entrepreneurship_training}
           onChange={onChangeHandler}
-          name="entrepreneurshipTraining"
+          name="entrepreneurship_training"
         >
           <FormControlLabel
             value="yes"
@@ -58,9 +58,9 @@ const ImprovedCapacity = ({
         <FormLabel>Other Training/ Skill Gained</FormLabel>
         <RadioGroup
           row
-          value={otherTraining}
+          value={other_trainings_skills_gained}
           onChange={onChangeHandler}
-          name="otherTraining"
+          name="other_trainings_skills_gained"
         >
           <FormControlLabel
             value="yes"
@@ -74,13 +74,12 @@ const ImprovedCapacity = ({
           />
         </RadioGroup>
       </FormControl>
-
       <Box mt={2} />
       <FormControl fullWidth>
         <InputLabel>Higher Degree Earned</InputLabel>
         <Select
-          value={higherDegreeEarned}
-          name="higherDegreeEarned"
+          value={higher_degree_earned}
+          name="higher_degree_earned"
           onChange={onChangeHandler}
         >
           <MenuItem value="bsc">B.Sc</MenuItem>

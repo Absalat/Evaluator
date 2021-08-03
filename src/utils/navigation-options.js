@@ -1,15 +1,25 @@
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import ListIcon from "@material-ui/icons/List";
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from "@material-ui/icons/Lock";
 const faculityNavOptions = [
   {
-    link: "/faculity/faculity-form/create",
-    icon: <AddBoxIcon color="primary"/>,
+    link: "/faculity/self-evaluation/new",
+    icon: <AddBoxIcon color="primary" />,
     text: "Faculity Evaluation Form",
+    role: [],
   },
   {
-    link: "/faculity/filled-faculity-list",
-    icon: <ListIcon color="primary" />,
-    text: "Filled Faculity Evaluation List",
+    link: "/faculity/profiles/update",
+    icon: <PersonIcon color="primary" />,
+    text: "Update Profile",
+    role: [],
+  },
+  {
+    link: "/password/change",
+    icon: <LockIcon color="primary" />,
+    text: "Change Password",
+    role: [],
   },
 ];
 

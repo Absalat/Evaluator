@@ -3,7 +3,8 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import React from "react";
 
-const CourseTaught = ({title,courses,courseType,handleAddElement,handleRemoveElement}) => {
+const CourseTaught = ({title,courses,courseType,handleAddElement,handleRemoveElement,handleOnChange}) => {
+  // [{course_name:"", course_code:""}]
   return (
     <>
       <Box display="flex" alignItems="center">
@@ -19,8 +20,20 @@ const CourseTaught = ({title,courses,courseType,handleAddElement,handleRemoveEle
             <TextField
               variant="outlined"
               label="course code"
+              name="course_code"
               margin="dense"
               fullWidth
+              onChange={(e)=>handleOnChange(e,courseType,index)}
+            />
+            <Box ml={2}/>
+             <TextField
+              variant="outlined"
+              label="course name"
+              name="course_name"
+              margin="dense"
+              fullWidth
+              onChange={(e)=>handleOnChange(e,courseType,index)}
+
             />
 
             {courses.length > 1 && (
