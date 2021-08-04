@@ -31,14 +31,16 @@ function Navigation(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {navigationOptions.faculityNavOptions.map((option, index) => (
-          <NavigationItem
-            key={index}
-            icon={option.icon}
-            link={option.link}
-            text={option.text}
-          />
-        ))}
+        {navigationOptions.faculityNavOptions.map((option, index) => {
+          return (
+            <NavigationItem
+              key={index}
+              icon={option.icon}
+              link={option.link}
+              text={option.text}
+            />
+          );
+        })}
       </List>
       <Divider />
     </div>
@@ -63,7 +65,7 @@ function Navigation(props) {
           </IconButton>
 
           <Typography align="right" style={{ flexGrow: 1 }}>
-            <Link to="/" color="inherit" component={RouterLink}>
+            <Link to="/logout" color="inherit" component={RouterLink}>
               logout
             </Link>
           </Typography>
