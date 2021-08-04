@@ -60,7 +60,7 @@ const NewFaculityProfile = (props) => {
       return errors;
     },
     onSubmit: (values) => {
-      props.createProfile(values);
+      props.updateProfile(values);
     },
   });
 
@@ -70,7 +70,7 @@ const NewFaculityProfile = (props) => {
     };
   }, []);
 
-  if (props.updatedProfle.updateSuccess) {
+  if (props.updatedProfile.updateSuccess) {
     return <Redirect to="/" />;
   }
   return (

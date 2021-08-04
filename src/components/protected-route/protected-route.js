@@ -1,8 +1,9 @@
 import React from "react";
 import { Redirect, Route } from "react-router";
 import config from "../../config";
+import useLocalStorage from "../../hooks/useLocalStorage";
 const ProtectedRoute = ({ children, roles, ...rest }) => {
-  const data = localStorage.getItem(config.storage)
+  const [data,_] = useLocalStorage(config.storage,null)
   if (data == null) {
     return <Redirect to="/login" />;
   }
