@@ -35,6 +35,7 @@ function App() {
         <Route exact path="/" component={RootApp} />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/logout" component={Logout} />
+
         <ProtectedRoute
           role={[config.roles.faculty]}
           exact
@@ -42,37 +43,44 @@ function App() {
         >
           <NewFaculityProfile />
         </ProtectedRoute>
-        <Navigation>
-          <ProtectedRoute
-            role={[config.roles.faculty, config.roles.admin]}
-            exact
-            path="/password/change"
-          >
+        <ProtectedRoute
+          role={[config.roles.faculty, config.roles.admin]}
+          exact
+          path="/password/change"
+        >
+          <Navigation>
             <UpdatePassword />
-          </ProtectedRoute>
-          <ProtectedRoute
-            role={[config.roles.faculty]}
-            exact
-            path="/faculity/profiles/update"
-          >
+          </Navigation>
+        </ProtectedRoute>
+        <ProtectedRoute
+          role={[config.roles.faculty]}
+          exact
+          path="/faculity/profiles/update"
+        >
+          <Navigation>
             <FaculityProfile />
-          </ProtectedRoute>
-          <ProtectedRoute
-            role={[config.roles.admin, config.roles.faculty]}
-            exact
-            path="/faculity/self-evaluation/new"
-          >
+          </Navigation>
+        </ProtectedRoute>
+        <ProtectedRoute
+          role={[config.roles.admin, config.roles.faculty]}
+          exact
+          path="/faculity/self-evaluation/new"
+        >
+          <Navigation>
             <FaculityForm />
-          </ProtectedRoute>
-          <ProtectedRoute
-            role={[config.roles.admin]}
-            exact
-            path="/faculity/self-evaluation/list"
-          >
+          </Navigation>
+        </ProtectedRoute>
+        <ProtectedRoute
+          role={[config.roles.admin]}
+          exact
+          path="/faculity/self-evaluation/list"
+        >
+          <Navigation>
             <FilledFaculityList />
-          </ProtectedRoute>
-        </Navigation>
-        <Route component={PageNotFound} />
+          </Navigation>
+        </ProtectedRoute>
+        <Route path='/404' component={PageNotFound} />
+        <Redirect from='*' to='/404' />
       </Switch>
     </Router>
   );

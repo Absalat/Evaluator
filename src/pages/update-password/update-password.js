@@ -1,27 +1,18 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
 import { useFormik } from "formik";
 import { connect } from "react-redux";
 import * as authActions from "../../store/auth/actions";
-
 import {
   Box,
   CircularProgress,
-  Dialog,
-  DialogContent,
   Snackbar,
 } from "@material-ui/core";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Redirect } from "react-router-dom";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import config from "../../config";
 import updatePasswordStyles from "./update-password-styles";
 import Section from "../../components/section/section";
 import Alert from "@material-ui/lab/Alert";

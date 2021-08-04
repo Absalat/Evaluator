@@ -10,12 +10,14 @@ import loginStyles from "./login-styles";
 import { useFormik } from "formik";
 import { connect } from "react-redux";
 import * as authActions from "../../store/auth/actions";
-import { CircularProgress, Dialog, DialogContent } from "@material-ui/core";
+import { CircularProgress, Dialog, DialogContent, Snackbar } from "@material-ui/core";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import config from "../../config";
+import Alert from "@material-ui/lab/Alert";
+
 const SignIn = (props) => {
   const classes = loginStyles();
   const [loading, setLoading] = useState(false);
@@ -58,6 +60,13 @@ const SignIn = (props) => {
           <CircularProgress disableShrink />
         </DialogContent>
       </Dialog>
+      <Snackbar
+        autoHideDuration={1000}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={props.login.error}
+      >
+        <Alert severity="error">{props.login.error}</Alert>
+      </Snackbar>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>

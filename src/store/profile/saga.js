@@ -7,7 +7,6 @@ function* handleUpdateProfile(action) {
     yield put({
       type: types.UPDATE_PROFILE_ATTEMPT,
     });
-    yield delay(5000)
     const storageResponse = yield call(
       [localStorage, localStorage.getItem],
       config.storage

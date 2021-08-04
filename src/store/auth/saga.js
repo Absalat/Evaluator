@@ -16,7 +16,6 @@ function* handleAttemptLogin(action) {
         },
       }
     );
-    yield delay(1000);
     yield put({
       type: types.LOGIN_SUCCESS,
       payload: response.data.data,
