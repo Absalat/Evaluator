@@ -16,10 +16,10 @@ import Logout from "./pages/auth/logout";
 import UpdatePassword from "./pages/update-password/update-password";
 import NewFaculityProfile from "./pages/faculity/faculity-profile/faculity-profile-new";
 import PageNotFound from "./pages/404/404";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 const RootApp = () => {
-  const data = localStorage.getItem(config.storage);
-
+  const [data,_] = useLocalStorage(config.storage,null)
   if (data == null) {
     return <Redirect to="/login" />;
   }

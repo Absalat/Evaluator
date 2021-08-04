@@ -16,6 +16,7 @@ import { connect } from "react-redux";
 import * as faculityActions from "../../../store/profile/actions";
 import config from "../../../config";
 import Alert from "@material-ui/lab/Alert";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 const FaculityProfile = (props) => {
   const formik = useFormik({
     initialValues: {
@@ -60,9 +61,10 @@ const FaculityProfile = (props) => {
       props.updateProfile(values);
     },
   });
+  const [data,_] = useLocalStorage(config.storage,null)
+
 
   useEffect(() => {
-    const data = localStorage.getItem(config.storage);
 
     if (data != null) {
       formik.setValues({
