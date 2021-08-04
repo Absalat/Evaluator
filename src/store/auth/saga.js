@@ -16,6 +16,11 @@ function* handleAttemptLogin(action) {
         },
       }
     );
+    yield call(
+      [localStorage, localStorage.setItem],
+      config.storage,
+      JSON.stringify(response.data.data)
+    );
     yield put({
       type: types.LOGIN_SUCCESS,
       payload: response.data.data,

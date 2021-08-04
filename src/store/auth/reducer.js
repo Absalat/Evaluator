@@ -33,6 +33,16 @@ const authReducer = (state = initialState, action) => {
         },
       };
     }
+    case types.RESET_LOGIN:{
+      return {
+        ...state,
+        login: {
+          isLoading: false,
+          error: null,
+          data: null,
+        },
+      };
+    }
     case types.LOGIN_FAILURE: {
       return {
         ...state,

@@ -14,15 +14,12 @@ import { CircularProgress, Dialog, DialogContent, Snackbar } from "@material-ui/
 import { useState } from "react";
 import { useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import config from "../../config";
 import Alert from "@material-ui/lab/Alert";
 
 const SignIn = (props) => {
   const classes = loginStyles();
   const [loading, setLoading] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
-  const [data,setData] = useLocalStorage(config.storage,null)
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -45,10 +42,14 @@ const SignIn = (props) => {
   useEffect(() => {
     setLoading(props.login.isLoading);
     if(props.login.data){
-      setData(props.login.data)
       setSignedIn(true)
     }
+
   }, [props.login]);
+
+  useEffect(()=>{
+    props.resetLogin()
+  },[])
 
   if(signedIn){
     return <Redirect to="/faculity/self-evaluation/new" />
@@ -131,6 +132,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     attemptLogin: (user) => dispatch(authActions.login(user)),
+    resetLogin: ()=>dispatch(authActions.resetLogin())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

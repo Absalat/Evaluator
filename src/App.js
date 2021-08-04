@@ -3,11 +3,11 @@ import {
   Switch,
   Route,
   Redirect,
+  useHistory,
 } from "react-router-dom";
 import Navigation from "./components/naviagation/navigation";
 import ProtectedRoute from "./components/protected-route/protected-route";
 import config from "./config";
-import useLocalStorage from "./hooks/useLocalStorage";
 import FaculityForm from "./pages/faculity/faculity-form/faculity-form";
 import FaculityProfile from "./pages/faculity/faculity-profile/faculity-profile";
 import FilledFaculityList from "./pages/faculity/filled-faculity-list/filled-faculity-list";
@@ -18,7 +18,8 @@ import NewFaculityProfile from "./pages/faculity/faculity-profile/faculity-profi
 import PageNotFound from "./pages/404/404";
 
 const RootApp = () => {
-  const [data, _] = useLocalStorage(config.storage, null);
+  const data = localStorage.getItem(config.storage);
+
   if (data == null) {
     return <Redirect to="/login" />;
   }
@@ -32,7 +33,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={RootApp} />
+        <Route exact path="/">
+          <RootApp />
+        </Route>
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/logout" component={Logout} />
 
@@ -79,8 +82,8 @@ function App() {
             <FilledFaculityList />
           </Navigation>
         </ProtectedRoute>
-        <Route path='/404' component={PageNotFound} />
-        <Redirect from='*' to='/404' />
+        <Route path="/404" component={PageNotFound} />
+        <Redirect from="*" to="/404" />
       </Switch>
     </Router>
   );

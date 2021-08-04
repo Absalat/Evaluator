@@ -1,15 +1,12 @@
 import {
-  AppBar,
   Box,
   Button,
   CircularProgress,
-  Container,
   Dialog,
   DialogContent,
   Grid,
   Snackbar,
   TextField,
-  Toolbar,
   Typography,
 } from "@material-ui/core";
 import { useFormik } from "formik";
@@ -17,8 +14,6 @@ import React, { useEffect, useState } from "react";
 import Section from "../../../components/section/section";
 import { connect } from "react-redux";
 import * as faculityActions from "../../../store/profile/actions";
-import { Redirect } from "react-router-dom";
-import useLocalStorage from "../../../hooks/useLocalStorage";
 import config from "../../../config";
 import Alert from "@material-ui/lab/Alert";
 const FaculityProfile = (props) => {
@@ -65,9 +60,10 @@ const FaculityProfile = (props) => {
       props.updateProfile(values);
     },
   });
-  const [data, setData] = useLocalStorage(config.storage, null);
 
   useEffect(() => {
+    const data = localStorage.getItem(config.storage);
+
     if (data != null) {
       formik.setValues({
         academic_rank: data.user.academic_rank,
@@ -85,9 +81,9 @@ const FaculityProfile = (props) => {
           data.user.degree_earned_phd_thesis_title,
       });
     }
-    return ()=>{
-      props.resetUpdateProfile()
-    }
+    return () => {
+      props.resetUpdateProfile();
+    };
   }, []);
 
   return (
@@ -248,7 +244,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateProfile: (profile) =>
       dispatch(faculityActions.updateProfile(profile)),
-      resetUpdateProfile: ()=>dispatch(faculityActions.resetUpdateProfile())
+    resetUpdateProfile: () => dispatch(faculityActions.resetUpdateProfile()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(FaculityProfile);
