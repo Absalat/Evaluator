@@ -21,7 +21,7 @@ import TeachingLearning from "./sections/teaching_learning";
 import TutoredCourses from "./sections/tutored_courses";
 import Section from "../../../components/section/section";
 import ImprovedCapacity from "./sections/improved_capacity";
-import EvaluationType from "./sections/evaluation_type";
+import EvaluationType from "../../../components/evaluation-type/evaluation_type";
 import { connect } from "react-redux";
 import * as faculityFormAction from "../../../store/form/actions";
 import Alert from "@material-ui/lab/Alert";

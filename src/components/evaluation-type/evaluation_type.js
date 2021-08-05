@@ -6,7 +6,7 @@ import {
   Select,
 } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import Section from "../section/section";
 
 const EvaluationType = ({ onChangeHandler, evaluation_type, semester }) => {
   return (

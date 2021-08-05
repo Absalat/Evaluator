@@ -21,6 +21,12 @@ const faculityNavOptions = [
     text: "Change Password",
     role: [],
   },
+  {
+    link: "/chair/self-evaluation/new",
+    icon: <AddBoxIcon color="primary" />,
+    text: "Chair Evaluation Form",
+    role: [],
+  },
 ];
 
 export default {

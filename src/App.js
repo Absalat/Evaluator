@@ -17,9 +17,10 @@ import UpdatePassword from "./pages/update-password/update-password";
 import NewFaculityProfile from "./pages/faculity/faculity-profile/faculity-profile-new";
 import PageNotFound from "./pages/404/404";
 import useLocalStorage from "./hooks/useLocalStorage";
+import ChairForm from "./pages/chair/chair-form/chair-form";
 
 const RootApp = () => {
-  const [data,_] = useLocalStorage(config.storage,null)
+  const [data, _] = useLocalStorage(config.storage, null);
   if (data == null) {
     return <Redirect to="/login" />;
   }
@@ -33,9 +34,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <RootApp />
-        </Route>
+        </Route> */}
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/logout" component={Logout} />
 
@@ -80,6 +81,11 @@ function App() {
         >
           <Navigation>
             <FilledFaculityList />
+          </Navigation>
+        </ProtectedRoute>
+        <ProtectedRoute path="/chair/self-evaluation/new">
+          <Navigation>
+            <ChairForm />
           </Navigation>
         </ProtectedRoute>
         <Route path="/404" component={PageNotFound} />
