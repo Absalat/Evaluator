@@ -16,9 +16,9 @@ const Publication = ({
   seminar_speaker_external
 }) => {
   return (
-    <Section title="Published Journal Papers">
+    <Section title="Publication">
       <Box mt={2} />
-      <Typography>M.Sc students supervision</Typography>
+      <Typography>Published Journal Paper</Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <TextField
