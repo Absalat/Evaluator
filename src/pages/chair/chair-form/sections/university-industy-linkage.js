@@ -2,7 +2,13 @@ import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
 import Section from "../../../../components/section/section";
 
-const UniversityIndustryLinkage = () => {
+const UniversityIndustryLinkage = ({
+  onChangeHandler,
+  partnership_established_mou_signed,
+  partnership_established_joint_workshops,
+  industry_projects_initiated,
+  industry_projects_completed
+}) => {
   return (
     <Section title="University industry linkage">
       <Box mt={1} />
@@ -15,6 +21,9 @@ const UniversityIndustryLinkage = () => {
             label="MoU signed"
             margin="dense"
             fullWidth
+            name="partnership_established_mou_signed"
+            value={partnership_established_mou_signed}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -24,6 +33,9 @@ const UniversityIndustryLinkage = () => {
             label="Joint w/shops"
             margin="dense"
             fullWidth
+            name="partnership_established_joint_workshops"
+            value={partnership_established_joint_workshops}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>
@@ -37,6 +49,9 @@ const UniversityIndustryLinkage = () => {
             label="Initiated"
             margin="dense"
             fullWidth
+            name="industry_projects_initiated"
+            value={industry_projects_initiated}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -46,6 +61,9 @@ const UniversityIndustryLinkage = () => {
             label="Completed"
             margin="dense"
             fullWidth
+            name="industry_projects_completed"
+            value={industry_projects_completed}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>

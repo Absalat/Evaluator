@@ -36,6 +36,46 @@ function* handleSubmitFaculitySelfEvaluation(action) {
   }
 }
 
+function* handleSubmitChairSelfEvaluation(action){
+  try {
+    yield put({
+      type: types.CHAIR_SELF_EVALUATION_SUBMIT_ATTEMPT,
+    });
+    action.payload.year = new Date().getFullYear()
+    const storageResponse = yield call(
+      [localStorage, localStorage.getItem],
+      config.storage
+    );
+    const storageData = JSON.parse(storageResponse);
+    yield axios.post(
+      `${config.baseURL}/evaluation/chair`,
+      action.payload,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: storageData.token,
+        },
+      }
+    );
+    yield put({
+      type: types.CHAIR_SELF_EVALUATION_SUBMIT_SUCCESS,
+      payload:"chair self evaluation submitted succesfully!"
+    });
+  } catch (error) {
+    yield put({
+      type: types.CHAIR_SELF_EVALUATION_SUBMIT_FAILURE,
+      payload: "submitting chair self evaluation failed !",
+    });
+  }
+}
+
+
+function* watchChairSelfEvaluationSubmit(){
+  yield takeLatest(
+    types.CHAIR_SELF_EVALUATION_SUBMIT_ASYNC,
+    handleSubmitChairSelfEvaluation
+  )
+}
 function* watchFaculitySelfEvaludationSubmit() {
   yield takeLatest(
     types.FACULITY_SELF_EVALUATION_SUBMIT_ASYNC,
@@ -43,7 +83,7 @@ function* watchFaculitySelfEvaludationSubmit() {
   );
 }
 function* formSaga() {
-  yield all([call(watchFaculitySelfEvaludationSubmit)]);
+  yield all([call(watchFaculitySelfEvaludationSubmit), call(watchChairSelfEvaluationSubmit)]);
 }
 
 export default formSaga;

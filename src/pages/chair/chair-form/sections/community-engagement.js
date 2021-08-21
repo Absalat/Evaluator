@@ -2,7 +2,12 @@ import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
 import Section from "../../../../components/section/section";
 
-const CommunityEngagement = () => {
+const CommunityEngagement = ({
+  onChangeHandler,
+  num_of_community_services_initiated,
+  num_of_community_services_completed,
+  num_of_benefited_parties,
+}) => {
   return (
     <Section title="Community Engagement">
       <Box mt={1} />
@@ -15,6 +20,9 @@ const CommunityEngagement = () => {
             label="Initiated"
             margin="dense"
             fullWidth
+            name="num_of_community_services_initiated"
+            value={num_of_community_services_initiated}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -24,6 +32,9 @@ const CommunityEngagement = () => {
             label="Completed"
             margin="dense"
             fullWidth
+            name="num_of_community_services_completed"
+            value={num_of_community_services_completed}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>
@@ -33,6 +44,9 @@ const CommunityEngagement = () => {
         label="Number of people/ communities / organizations benefited"
         margin="dense"
         fullWidth
+        name="num_of_benefited_parties"
+        value={num_of_benefited_parties}
+        onChange={onChangeHandler}
       />
     </Section>
   );

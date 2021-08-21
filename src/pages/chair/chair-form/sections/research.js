@@ -2,7 +2,18 @@ import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
 import Section from "../../../../components/section/section";
 
-const Research = () => {
+const Research = ({
+  onChangeHandler,
+  num_of_research_grant_applied_internal,
+  num_of_research_grant_applied_external,
+  amount_of_grant_secured_internal,
+  amount_of_grant_secured_external,
+  phd_students_supervision_enrolled,
+  phd_students_supervision_completed,
+  msc_students_supervision_enrolled,
+  msc_students_supervision_completed,
+  msc_students_supervision_manuscripts_produced,
+}) => {
   return (
     <Section title="Research">
       <Box mt={1} />
@@ -15,6 +26,9 @@ const Research = () => {
             label="Internal"
             margin="dense"
             fullWidth
+            name="num_of_research_grant_applied_internal"
+            value={num_of_research_grant_applied_internal}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -24,6 +38,9 @@ const Research = () => {
             label="External"
             margin="dense"
             fullWidth
+            name="num_of_research_grant_applied_external"
+            value={num_of_research_grant_applied_external}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>
@@ -37,6 +54,9 @@ const Research = () => {
             label="Internal"
             margin="dense"
             fullWidth
+            name="amount_of_grant_secured_internal"
+            value={amount_of_grant_secured_internal}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -46,6 +66,9 @@ const Research = () => {
             label="External"
             margin="dense"
             fullWidth
+            name="amount_of_grant_secured_external"
+            value={amount_of_grant_secured_external}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>
@@ -59,6 +82,9 @@ const Research = () => {
             label="Internal"
             margin="dense"
             fullWidth
+            name="phd_students_supervision_enrolled"
+            value={phd_students_supervision_enrolled}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -68,6 +94,9 @@ const Research = () => {
             label="External"
             margin="dense"
             fullWidth
+            name="phd_students_supervision_completed"
+            value={phd_students_supervision_completed}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>
@@ -81,6 +110,9 @@ const Research = () => {
             label="Enrolled"
             margin="dense"
             fullWidth
+            name="msc_students_supervision_enrolled"
+            value={msc_students_supervision_enrolled}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -90,6 +122,9 @@ const Research = () => {
             label="Completed"
             margin="dense"
             fullWidth
+            name="msc_students_supervision_completed"
+            value={msc_students_supervision_completed}
+            onChange={onChangeHandler}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -99,6 +134,9 @@ const Research = () => {
             label="Manuscripts produced"
             margin="dense"
             fullWidth
+            name="msc_students_supervision_manuscripts_produced"
+            value={msc_students_supervision_manuscripts_produced}
+            onChange={onChangeHandler}
           />
         </Grid>
       </Grid>
