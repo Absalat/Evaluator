@@ -17,13 +17,15 @@ import UpdatePassword from "./pages/update-password/update-password";
 import NewFaculityProfile from "./pages/faculity/faculity-profile/faculity-profile-new";
 import PageNotFound from "./pages/404/404";
 import useLocalStorage from "./hooks/useLocalStorage";
+import ChairForm from "./pages/chair/chair-form/chair-form";
+import Users from "./pages/users/users";
 
 const RootApp = () => {
-  const [data,_] = useLocalStorage(config.storage,null)
+  const [data, _] = useLocalStorage(config.storage, null);
   if (data == null) {
     return <Redirect to="/login" />;
   }
-  if (!data.user.profile_filled) {
+  if (data.user && !data.user.profile_filled) {
     return <Redirect to="/faculity/profiles/new" />;
   }
   return <Redirect to="/faculity/self-evaluation/new" />;
@@ -39,15 +41,20 @@ function App() {
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/logout" component={Logout} />
 
+        <ProtectedRoute exact path="/users" roles={[config.roles.faculty]}>
+          <Navigation>
+            <Users />
+          </Navigation>
+        </ProtectedRoute>
         <ProtectedRoute
-          role={[config.roles.faculty]}
+          roles={[config.roles.faculty]}
           exact
           path="/faculity/profiles/new"
         >
           <NewFaculityProfile />
         </ProtectedRoute>
         <ProtectedRoute
-          role={[config.roles.faculty, config.roles.admin]}
+          roles={[config.roles.faculty, config.roles.admin]}
           exact
           path="/password/change"
         >
@@ -56,7 +63,7 @@ function App() {
           </Navigation>
         </ProtectedRoute>
         <ProtectedRoute
-          role={[config.roles.faculty]}
+          roles={[config.roles.faculty]}
           exact
           path="/faculity/profiles/update"
         >
@@ -65,7 +72,7 @@ function App() {
           </Navigation>
         </ProtectedRoute>
         <ProtectedRoute
-          role={[config.roles.admin, config.roles.faculty]}
+          roles={[config.roles.admin, config.roles.faculty]}
           exact
           path="/faculity/self-evaluation/new"
         >
@@ -74,12 +81,21 @@ function App() {
           </Navigation>
         </ProtectedRoute>
         <ProtectedRoute
-          role={[config.roles.admin]}
+          roles={[config.roles.admin]}
           exact
           path="/faculity/self-evaluation/list"
         >
           <Navigation>
             <FilledFaculityList />
+          </Navigation>
+        </ProtectedRoute>
+        <ProtectedRoute
+          roles={[config.roles.chair]}
+          exact
+          path="/chair/self-evaluation/new"
+        >
+          <Navigation>
+            <ChairForm />
           </Navigation>
         </ProtectedRoute>
         <Route path="/404" component={PageNotFound} />

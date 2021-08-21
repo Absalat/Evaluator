@@ -15,12 +15,16 @@ import NavigationItem from "../navigation-item/navigation-item";
 import navigationOptions from "../../utils/navigation-options";
 import { Link } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import config from "../../config";
 
 function Navigation(props) {
   const { window } = props;
   const classes = navigationStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const [data, _] = useLocalStorage(config.storage, null);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,14 +36,16 @@ function Navigation(props) {
       <Divider />
       <List>
         {navigationOptions.faculityNavOptions.map((option, index) => {
-          return (
-            <NavigationItem
-              key={index}
-              icon={option.icon}
-              link={option.link}
-              text={option.text}
-            />
-          );
+          if (option.role.some((role) => data.user.roles.includes(role))) {
+            return (
+              <NavigationItem
+                key={index}
+                icon={option.icon}
+                link={option.link}
+                text={option.text}
+              />
+            );
+          }
         })}
       </List>
       <Divider />

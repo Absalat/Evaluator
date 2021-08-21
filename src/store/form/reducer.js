@@ -6,6 +6,11 @@ const initialState = {
     error: null,
     submitSuccess: false,
   },
+  chairSelfEvaluation: {
+    isLoading: false,
+    error: null,
+    submitSuccess: null,
+  },
 };
 const formReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -46,6 +51,46 @@ const formReducer = (state = initialState, action) => {
           isLoading: false,
           error: null,
           submitSuccess: false,
+        },
+      };
+    }
+    case types.CHAIR_SELF_EVALUATION_SUBMIT_ATTEMPT: {
+      return {
+        ...state,
+        chairSelfEvaluation: {
+          isLoading: true,
+          error: null,
+          submitSuccess: null,
+        },
+      };
+    }
+    case types.CHAIR_SELF_EVALUATION_SUBMIT_SUCCESS: {
+      return {
+        ...state,
+        chairSelfEvaluation: {
+          isLoading: false,
+          error: null,
+          submitSuccess: action.payload,
+        },
+      };
+    }
+    case types.CHAIR_SELF_EVALUATION_SUBMIT_FAILURE: {
+      return {
+        ...state,
+        chairSelfEvaluation: {
+          isLoading: false,
+          error: action.payload,
+          submitSuccess: null,
+        },
+      };
+    }
+    case types.CHAIR_SELF_EVALUATION_SUBMIT_RESET: {
+      return {
+        ...state,
+        chairSelfEvaluation: {
+          isLoading: false,
+          error: null,
+          submitSuccess: null,
         },
       };
     }

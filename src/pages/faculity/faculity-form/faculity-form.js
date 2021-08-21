@@ -21,11 +21,15 @@ import TeachingLearning from "./sections/teaching_learning";
 import TutoredCourses from "./sections/tutored_courses";
 import Section from "../../../components/section/section";
 import ImprovedCapacity from "./sections/improved_capacity";
-import EvaluationType from "./sections/evaluation_type";
+import EvaluationType from "../../../components/evaluation-type/evaluation_type";
 import { connect } from "react-redux";
 import * as faculityFormAction from "../../../store/form/actions";
 import Alert from "@material-ui/lab/Alert";
+import Confirm from "../../../components/confirm/confirm";
 const FaculityForm = (props) => {
+  const [confirmDialog, setConfirmDialog] = useState({
+    open: false,
+  });
   const course_types = {
     bsc_course: "bsc_course",
     msc_course: "msc_course",
@@ -117,12 +121,18 @@ const FaculityForm = (props) => {
       semester: null,
     },
     onSubmit: (values) => {
-    
       values.tought_bsc_courses = tought_bsc_courses;
       values.tought_msc_courses = tought_msc_courses;
       values.tought_phd_courses = tought_phd_courses;
-
-      props.submitFaculitySelfEvaluation(values);
+      setConfirmDialog({
+        open: true,
+        title: "Are you sure ?",
+        message:
+          "Are you sure you want to submit this evaluation? This action is not reverable. ",
+        onConfirm: () => {
+          props.submitFaculitySelfEvaluation(values);
+        },
+      });
     },
   });
 
@@ -206,6 +216,10 @@ const FaculityForm = (props) => {
   }, []);
   return (
     <div>
+      <Confirm
+        confirmDialog={confirmDialog}
+        setConfirmDialog={setConfirmDialog}
+      />
       <Snackbar
         autoHideDuration={1000}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
