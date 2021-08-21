@@ -4,9 +4,9 @@ import Section from "./modules/Section";
 
 const CooperationWithUniversityAbroad = ({
     onChangeHandler,
-    cooperation_university_abroad_faculty_exchanges,
-    cooperation_university_abroad_student_exchanges,
-    cooperation_university_abroad_joint_projects,
+    faculty_exchanges,
+    student_exchanges,
+    joint_projects,
 }) => {
     return (
         <Section title="Cooperation with University abroad">
@@ -18,8 +18,8 @@ const CooperationWithUniversityAbroad = ({
                 label="Faculity exchanges"
                 fullWidth
                 onChange={onChangeHandler}
-                name="cooperation_university_abroad_faculty_exchanges"
-                value={cooperation_university_abroad_faculty_exchanges}
+                name="faculty_exchanges"
+                value={faculty_exchanges}
             />
             <TextField
                 variant="outlined"
@@ -28,8 +28,8 @@ const CooperationWithUniversityAbroad = ({
                 label="Student exchanges"
                 fullWidth
                 onChange={onChangeHandler}
-                name="cooperation_university_abroad_student_exchanges"
-                value={cooperation_university_abroad_student_exchanges}
+                name="student_exchanges"
+                value={student_exchanges}
             />
             <TextField
                 variant="outlined"
@@ -38,8 +38,8 @@ const CooperationWithUniversityAbroad = ({
                 label="Joint projects"
                 fullWidth
                 onChange={onChangeHandler}
-                name="cooperation_university_abroad_joint_projects"
-                value={cooperation_university_abroad_joint_projects}
+                name="joint_projects"
+                value={joint_projects}
             />
         </Section>
     );

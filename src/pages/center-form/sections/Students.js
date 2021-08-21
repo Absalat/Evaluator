@@ -4,9 +4,9 @@ import Section from "./modules/Section";
 
 function Students({
     onChangeHandler,
-    student_profiles_ug_students,
-    student_profiles_msc_students,
-    student_profiles_phd_students,
+    ug_students,
+    msc_students,
+    phd_students,
 }) {
     return (
         <Section title="Student Profiles">
@@ -20,8 +20,8 @@ function Students({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="student_profiles_ug_students"
-                        value={student_profiles_ug_students}
+                        name="ug_students"
+                        value={ug_students}
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -32,8 +32,8 @@ function Students({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="student_profiles_msc_students"
-                        value={student_profiles_msc_students}
+                        name="msc_students"
+                        value={msc_students}
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -44,8 +44,8 @@ function Students({
                         label="PhD Students"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="student_profiles_phd_students"
-                        value={student_profiles_phd_students}
+                        name="phd_students"
+                        value={phd_students}
                     />
                 </Grid>
             </Grid>

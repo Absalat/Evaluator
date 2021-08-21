@@ -39,7 +39,7 @@ const faculityNavOptions = [
     link: "/center/evaluation/new",
     icon: <AddBoxIcon color="primary" />,
     text: "School Evaluation Form",
-    role: [config.roles.chair, config.roles.admin, config.roles.dean],
+    role: [config.roles.dean],
   },
 ];
 

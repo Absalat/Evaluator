@@ -4,12 +4,12 @@ import Section from "./modules/Section";
 
 function AcademicStaff({
     onChangeHandler,
-    academic_staff_technial_staff,
-    academic_staff_assistant_lecturers,
-    academic_staff_lecturers,
-    academic_staff_assistant_professors,
-    academic_staff_associate_professors,
-    academic_staff_professors,
+    technical_staffs,
+    asst_lecturers,
+    lecturers,
+    asst_profesors,
+    assoc_professors,
+    profesors,
 }) {
     return (
         <Section title="Academic Staff Profile">
@@ -21,8 +21,8 @@ function AcademicStaff({
                 label="Technical Staffs"
                 fullWidth
                 onChange={onChangeHandler}
-                name="academic_staff_technial_staff"
-                value={academic_staff_technial_staff}
+                name="technical_staffs"
+                value={technical_staffs}
             />
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
@@ -33,8 +33,8 @@ function AcademicStaff({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="academic_staff_assistant_lecturers"
-                        value={academic_staff_assistant_lecturers}
+                        name="asst_lecturers"
+                        value={asst_lecturers}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -45,8 +45,8 @@ function AcademicStaff({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="academic_staff_lecturers"
-                        value={academic_staff_lecturers}
+                        name="lecturers"
+                        value={lecturers}
                     />
                 </Grid>
             </Grid>
@@ -59,8 +59,8 @@ function AcademicStaff({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="academic_staff_assistant_professors"
-                        value={academic_staff_assistant_professors}
+                        name="asst_profesors"
+                        value={asst_profesors}
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -71,8 +71,8 @@ function AcademicStaff({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="academic_staff_associate_professors"
-                        value={academic_staff_associate_professors}
+                        name="assoc_professors"
+                        value={assoc_professors}
                     />
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -83,8 +83,8 @@ function AcademicStaff({
                         label="Professors"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="academic_staff_professors"
-                        value={academic_staff_professors}
+                        name="profesors"
+                        value={profesors}
                     />
                 </Grid>
             </Grid>

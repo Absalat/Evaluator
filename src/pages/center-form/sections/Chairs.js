@@ -4,10 +4,10 @@ import Section from "./modules/Section";
 
 function Chairs({
     onChangeHandler,
-    chairs_number_of_chairs,
-    chairs_members,
-    chairs_chairs_submitted_annual_plan,
-    chairs_chairs_submitted_quartely_report,
+    num_of_chairs,
+    members_chair,
+    chairs_submitted_annual_plan,
+    chairs_submitted_quarterly_report,
 }) {
     return (
         <Section title="Chairs">
@@ -19,8 +19,8 @@ function Chairs({
                 label="Number of chairs"
                 fullWidth
                 onChange={onChangeHandler}
-                name="chairs_number_of_chairs"
-                value={chairs_number_of_chairs}
+                name="num_of_chairs"
+                value={num_of_chairs}
             />
             <TextField
                 variant="outlined"
@@ -29,8 +29,8 @@ function Chairs({
                 label="Members/Chair"
                 fullWidth
                 onChange={onChangeHandler}
-                name="chairs_members"
-                value={chairs_members}
+                name="members_chair"
+                value={members_chair}
             />
             <TextField
                 variant="outlined"
@@ -39,8 +39,8 @@ function Chairs({
                 label="Chairs submitted annual plan"
                 fullWidth
                 onChange={onChangeHandler}
-                name="chairs_chairs_submitted_annual_plan"
-                value={chairs_chairs_submitted_annual_plan}
+                name="chairs_submitted_annual_plan"
+                value={chairs_submitted_annual_plan}
             />
             <TextField
                 variant="outlined"
@@ -49,8 +49,8 @@ function Chairs({
                 label="Chairs submitted quarterly plan"
                 fullWidth
                 onChange={onChangeHandler}
-                name="chairs_chairs_submitted_quartely_report"
-                value={chairs_chairs_submitted_quartely_report}
+                name="chairs_submitted_quarterly_report"
+                value={chairs_submitted_quarterly_report}
             />
         </Section>
     );

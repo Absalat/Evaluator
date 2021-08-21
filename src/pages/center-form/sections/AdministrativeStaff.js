@@ -4,9 +4,9 @@ import Section from "./modules/Section";
 
 function AdministrativeStaff({
     onChangeHandler,
-    administrative_staff_adminstrator,
-    administrative_staff_secretaries,
-    administrative_staff_research_staff,
+    administrators,
+    secretaries,
+    research_staffs,
 }) {
     return (
         <Section title="Administrative Staff Profile">
@@ -18,8 +18,8 @@ function AdministrativeStaff({
                 label="Adminstrator"
                 fullWidth
                 onChange={onChangeHandler}
-                name="administrative_staff_adminstrator"
-                value={administrative_staff_adminstrator}
+                name="administrators"
+                value={administrators}
             />
             <TextField
                 variant="outlined"
@@ -28,8 +28,8 @@ function AdministrativeStaff({
                 label="Secretaries"
                 fullWidth
                 onChange={onChangeHandler}
-                name="administrative_staff_secretaries"
-                value={administrative_staff_secretaries}
+                name="secretaries"
+                value={secretaries}
             />
             <TextField
                 variant="outlined"
@@ -38,8 +38,8 @@ function AdministrativeStaff({
                 label="Research Staffs"
                 fullWidth
                 onChange={onChangeHandler}
-                name="administrative_staff_research_staff"
-                value={administrative_staff_research_staff}
+                name="research_staffs"
+                value={research_staffs}
             />
         </Section>
     );

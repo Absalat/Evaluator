@@ -100,7 +100,7 @@ function App() {
           </Navigation>
         </ProtectedRoute>
         <ProtectedRoute
-          roles={[config.roles.chair,config.roles.admin,config.roles.dean]}
+          roles={[config.roles.dean]}
           exact
           path="/center/evaluation/new"
         >

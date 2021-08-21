@@ -4,10 +4,10 @@ import Section from "./modules/Section";
 
 const TechnologyTransfer = ({
     onChangeHandler,
-    technology_transfer_tt_projects_initiated,
-    technology_transfer_tt_projects_completed,
-    technology_transfer_patented_research_outputs,
-    technology_transfer_enterprise_incubated,
+    it_projects_initiated,
+    it_projects_completed,
+    patented_research_outputs,
+    enterprise_incubated,
 }) => {
     return (
         <Section title="Technology Transfer">
@@ -22,8 +22,8 @@ const TechnologyTransfer = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="technology_transfer_tt_projects_initiated"
-                        value={technology_transfer_tt_projects_initiated}
+                        name="it_projects_initiated"
+                        value={it_projects_initiated}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -34,8 +34,8 @@ const TechnologyTransfer = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="technology_transfer_tt_projects_completed"
-                        value={technology_transfer_tt_projects_completed}
+                        name="it_projects_completed"
+                        value={it_projects_completed}
                     />
                 </Grid>
             </Grid>
@@ -46,8 +46,8 @@ const TechnologyTransfer = ({
                 label="Patented research outputs"
                 fullWidth
                 onChange={onChangeHandler}
-                name="technology_transfer_patented_research_outputs"
-                value={technology_transfer_patented_research_outputs}
+                name="patented_research_outputs"
+                value={patented_research_outputs}
             />
             <TextField
                 variant="outlined"
@@ -56,8 +56,8 @@ const TechnologyTransfer = ({
                 label="Enterprise incubated"
                 fullWidth
                 onChange={onChangeHandler}
-                name="technology_transfer_enterprise_incubated"
-                value={technology_transfer_enterprise_incubated}
+                name="enterprise_incubated"
+                value={enterprise_incubated}
             />
         </Section>
     );

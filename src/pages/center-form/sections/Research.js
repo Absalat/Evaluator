@@ -4,14 +4,14 @@ import Section from "./modules/Section";
 
 const Research = ({
     onChangeHandler,
-    research_num_of_research_grants_applied_internal,
-    research_num_of_research_grants_applied_external,
-    research_amount_of_grant_secured_internal,
-    research_amount_of_grant_secured_external,
-    research_phd_students_supervision_enrolled,
-    research_phd_students_supervision_completed,
-    research_msc_students_supervision_enrolled,
-    research_msc_students_supervision_completed,
+    num_of_research_grant_applied_internal,
+    num_of_research_grant_applied_external,
+    amount_of_grant_secured_internal,
+    amount_of_grant_secured_external,
+    phd_students_supervision_enrolled,
+    phd_students_supervision_completed,
+    msc_students_supervision_enrolled,
+    msc_students_supervision_completed,
 }) => {
     return (
         <Section title="Research">
@@ -26,8 +26,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_num_of_research_grants_applied_internal"
-                        value={research_num_of_research_grants_applied_internal}
+                        name="num_of_research_grant_applied_internal"
+                        value={num_of_research_grant_applied_internal}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -38,8 +38,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_num_of_research_grants_applied_external"
-                        value={research_num_of_research_grants_applied_external}
+                        name="num_of_research_grant_applied_external"
+                        value={num_of_research_grant_applied_external}
                     />
                 </Grid>
             </Grid>
@@ -54,8 +54,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_amount_of_grant_secured_internal"
-                        value={research_amount_of_grant_secured_internal}
+                        name="amount_of_grant_secured_internal"
+                        value={amount_of_grant_secured_internal}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -66,8 +66,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_amount_of_grant_secured_external"
-                        value={research_amount_of_grant_secured_external}
+                        name="amount_of_grant_secured_external"
+                        value={amount_of_grant_secured_external}
                     />
                 </Grid>
             </Grid>
@@ -82,8 +82,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_phd_students_supervision_enrolled"
-                        value={research_phd_students_supervision_enrolled}
+                        name="phd_students_supervision_enrolled"
+                        value={phd_students_supervision_enrolled}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -94,8 +94,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_phd_students_supervision_completed"
-                        value={research_phd_students_supervision_completed}
+                        name="phd_students_supervision_completed"
+                        value={phd_students_supervision_completed}
                     />
                 </Grid>
             </Grid>
@@ -110,8 +110,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_msc_students_supervision_enrolled"
-                        value={research_msc_students_supervision_enrolled}
+                        name="msc_students_supervision_enrolled"
+                        value={msc_students_supervision_enrolled}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -122,8 +122,8 @@ const Research = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="research_msc_students_supervision_completed"
-                        value={research_msc_students_supervision_completed}
+                        name="msc_students_supervision_completed"
+                        value={msc_students_supervision_completed}
                     />
                 </Grid>
             </Grid>

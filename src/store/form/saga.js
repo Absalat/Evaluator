@@ -7,7 +7,7 @@ function* handleSubmitFaculitySelfEvaluation(action) {
     yield put({
       type: types.FACULITY_SELF_EVALUATION_SUBMIT_ATTEMPT,
     });
-    action.payload.year = "2021"
+    action.payload.year = "2021";
     const storageResponse = yield call(
       [localStorage, localStorage.getItem],
       config.storage
@@ -36,30 +36,26 @@ function* handleSubmitFaculitySelfEvaluation(action) {
   }
 }
 
-function* handleSubmitChairSelfEvaluation(action){
+function* handleSubmitChairSelfEvaluation(action) {
   try {
     yield put({
       type: types.CHAIR_SELF_EVALUATION_SUBMIT_ATTEMPT,
     });
-    action.payload.year = new Date().getFullYear()
+    action.payload.year = new Date().getFullYear();
     const storageResponse = yield call(
       [localStorage, localStorage.getItem],
       config.storage
     );
     const storageData = JSON.parse(storageResponse);
-    yield axios.post(
-      `${config.baseURL}/evaluation/chair`,
-      action.payload,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: storageData.token,
-        },
-      }
-    );
+    yield axios.post(`${config.baseURL}/evaluation/chair`, action.payload, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: storageData.token,
+      },
+    });
     yield put({
       type: types.CHAIR_SELF_EVALUATION_SUBMIT_SUCCESS,
-      payload:"chair self evaluation submitted succesfully!"
+      payload: "chair self evaluation submitted succesfully!",
     });
   } catch (error) {
     yield put({
@@ -69,12 +65,47 @@ function* handleSubmitChairSelfEvaluation(action){
   }
 }
 
+function* handleSchoolEvaluation(action) {
+  try {
+    yield put({
+      type: types.SCHOOL_EVALUATION_SUBMIT_ATTEMPT,
+    });
+    action.payload.year = new Date().getFullYear();
+    const storageResponse = yield call(
+      [localStorage, localStorage.getItem],
+      config.storage
+    );
+    const storageData = JSON.parse(storageResponse);
+    yield axios.post(`${config.baseURL}/evaluation/school`, action.payload, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: storageData.token,
+      },
+    });
+    yield put({
+      type: types.SCHOOL_EVALUATION_SUBMIT_SUCCESS,
+      payload: "school evaluation submitted succesfully!",
+    });
+  } catch (error) {
+    yield put({
+      type: types.SCHOOL_EVALUATION_SUBMIT_FAILURE,
+      payload: "submitting school evaluation failed !",
+    });
+  }
+}
 
-function* watchChairSelfEvaluationSubmit(){
+function* watchSchoolEvaluationSubmit() {
+  yield takeLatest(
+    types.SCHOOL_EVALUATION_SUBMIT_ASYNC,
+    handleSchoolEvaluation
+  );
+}
+
+function* watchChairSelfEvaluationSubmit() {
   yield takeLatest(
     types.CHAIR_SELF_EVALUATION_SUBMIT_ASYNC,
     handleSubmitChairSelfEvaluation
-  )
+  );
 }
 function* watchFaculitySelfEvaludationSubmit() {
   yield takeLatest(
@@ -83,7 +114,11 @@ function* watchFaculitySelfEvaludationSubmit() {
   );
 }
 function* formSaga() {
-  yield all([call(watchFaculitySelfEvaludationSubmit), call(watchChairSelfEvaluationSubmit)]);
+  yield all([
+    call(watchFaculitySelfEvaludationSubmit),
+    call(watchChairSelfEvaluationSubmit),
+    call(watchSchoolEvaluationSubmit),
+  ]);
 }
 
 export default formSaga;

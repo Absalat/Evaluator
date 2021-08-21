@@ -4,10 +4,10 @@ import Section from "./modules/Section";
 
 const Consultancy = ({
     onChangeHandler,
-    consultancy_short_term_training,
-    consultancy_num_of_consulting_services_initiated,
-    consultancy_num_of_consulting_services_completed,
-    consultancy_consulting_income_generated,
+    short_term_training,
+    num_of_consulting_services_initiated,
+    num_of_consulting_services_completed,
+    consulting_income_generated,
 }) => {
     return (
         <Section title="Consultancy">
@@ -18,8 +18,8 @@ const Consultancy = ({
                 label="Short term training"
                 fullWidth
                 onChange={onChangeHandler}
-                name="consultancy_short_term_training"
-                value={consultancy_short_term_training}
+                name="short_term_training"
+                value={short_term_training}
             />
             <Box mt={2} />
             <Typography>No. consult. services</Typography>
@@ -32,8 +32,8 @@ const Consultancy = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="consultancy_num_of_consulting_services_initiated"
-                        value={consultancy_num_of_consulting_services_initiated}
+                        name="num_of_consulting_services_initiated"
+                        value={num_of_consulting_services_initiated}
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -44,8 +44,8 @@ const Consultancy = ({
                         margin="dense"
                         fullWidth
                         onChange={onChangeHandler}
-                        name="consultancy_num_of_consulting_services_completed"
-                        value={consultancy_num_of_consulting_services_completed}
+                        name="num_of_consulting_services_completed"
+                        value={num_of_consulting_services_completed}
                     />
                 </Grid>
             </Grid>
@@ -56,8 +56,8 @@ const Consultancy = ({
                 label="Consult. income generated (Birr)"
                 fullWidth
                 onChange={onChangeHandler}
-                name="consultancy_consulting_income_generated"
-                value={consultancy_consulting_income_generated}
+                name="consulting_income_generated"
+                value={consulting_income_generated}
             />
         </Section>
     );

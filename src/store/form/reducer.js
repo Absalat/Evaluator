@@ -11,6 +11,11 @@ const initialState = {
     error: null,
     submitSuccess: null,
   },
+  schoolEvaluation: {
+    isLoading: false,
+    error: null,
+    submitSuccess: null,
+  },
 };
 const formReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -88,6 +93,46 @@ const formReducer = (state = initialState, action) => {
       return {
         ...state,
         chairSelfEvaluation: {
+          isLoading: false,
+          error: null,
+          submitSuccess: null,
+        },
+      };
+    }
+    case types.SCHOOL_EVALUATION_SUBMIT_ATTEMPT: {
+      return {
+        ...state,
+        schoolEvaluation: {
+          isLoading: true,
+          error: null,
+          submitSuccess: null,
+        },
+      };
+    }
+    case types.SCHOOL_EVALUATION_SUBMIT_SUCCESS: {
+      return {
+        ...state,
+        schoolEvaluation: {
+          isLoading: false,
+          error: null,
+          submitSuccess: action.payload,
+        },
+      };
+    }
+    case types.SCHOOL_EVALUATION_SUBMIT_FAILURE: {
+      return {
+        ...state,
+        schoolEvaluation: {
+          isLoading: false,
+          error: action.payload,
+          submitSuccess: null,
+        },
+      };
+    }
+    case types.SCHOOL_EVALUATION_SUBMIT_RESET: {
+      return {
+        ...state,
+        schoolEvaluation: {
           isLoading: false,
           error: null,
           submitSuccess: null,
