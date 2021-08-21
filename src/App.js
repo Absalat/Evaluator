@@ -19,6 +19,7 @@ import PageNotFound from "./pages/404/404";
 import useLocalStorage from "./hooks/useLocalStorage";
 import ChairForm from "./pages/chair/chair-form/chair-form";
 import Users from "./pages/users/users";
+import CenterForm from "./pages/center-form/CenterForm";
 
 const RootApp = () => {
   const [data, _] = useLocalStorage(config.storage, null);
@@ -96,6 +97,15 @@ function App() {
         >
           <Navigation>
             <ChairForm />
+          </Navigation>
+        </ProtectedRoute>
+        <ProtectedRoute
+          roles={[config.roles.chair,config.roles.admin,config.roles.dean]}
+          exact
+          path="/center/evaluation/new"
+        >
+          <Navigation>
+            <CenterForm />
           </Navigation>
         </ProtectedRoute>
         <Route path="/404" component={PageNotFound} />
