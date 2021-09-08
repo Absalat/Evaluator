@@ -9,7 +9,8 @@ const EntrepreneurialProjects = ({
   bsc_msc_student_advised_prototype_developed,
   personally_executed_partially_done,
   personally_executed_completed,
-  personally_executed_prototype_developed  
+  personally_executed_prototype_developed ,
+  disable 
 }) => {
   return (
     <Section title="Entrepreneurial Projects">
@@ -27,6 +28,7 @@ const EntrepreneurialProjects = ({
             value={bsc_msc_student_advised_partially_done}
             onChange={onChangeHandler}
             fullWidth
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -39,6 +41,7 @@ const EntrepreneurialProjects = ({
             name="bsc_msc_student_advised_completed"
             value={bsc_msc_student_advised_completed}
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -51,6 +54,7 @@ const EntrepreneurialProjects = ({
             name="bsc_msc_student_advised_prototype_developed"
             value={bsc_msc_student_advised_prototype_developed}
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -67,6 +71,7 @@ const EntrepreneurialProjects = ({
             name="personally_executed_partially_done"
             value={personally_executed_partially_done}
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -79,6 +84,7 @@ const EntrepreneurialProjects = ({
             name="personally_executed_completed"
             value={personally_executed_completed}
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -91,6 +97,7 @@ const EntrepreneurialProjects = ({
             name="personally_executed_prototype_developed"
             value={personally_executed_prototype_developed}
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
       </Grid>

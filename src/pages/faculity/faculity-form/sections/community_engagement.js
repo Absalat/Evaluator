@@ -7,6 +7,7 @@ const CommunityEnagement = ({
   num_of_community_services_initiated,
   num_of_community_services_completed,
   num_of_benefited_parties,
+  disable,
 }) => {
   return (
     <Section title="Comunity Enagagement">
@@ -23,6 +24,7 @@ const CommunityEnagement = ({
             onChange={onChangeHandler}
             name="num_of_community_services_initiated"
             value={num_of_community_services_initiated}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -35,6 +37,7 @@ const CommunityEnagement = ({
             onChange={onChangeHandler}
             name="num_of_community_services_completed"
             value={num_of_community_services_completed}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -47,6 +50,7 @@ const CommunityEnagement = ({
         onChange={onChangeHandler}
         name="num_of_benefited_parties"
         value={num_of_benefited_parties}
+        disabled={disable}
       />
     </Section>
   );

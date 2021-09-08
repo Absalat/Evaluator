@@ -13,7 +13,8 @@ const Publication = ({
   paper_presented_on_conference_national,
   paper_presented_on_conference_international,
   seminar_speaker_internal,
-  seminar_speaker_external
+  seminar_speaker_external,
+  disable
 }) => {
   return (
     <Section title="Publication">
@@ -30,6 +31,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="published_journal_papers_national"
             value={published_journal_papers_national}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -42,6 +44,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="published_journal_papers_international"
             value={published_journal_papers_international}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -58,6 +61,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="submitted_journal_papers_national"
             value={submitted_journal_papers_national}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -70,6 +74,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="submitted_journal_papers_international"
             value={submitted_journal_papers_international}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -86,6 +91,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="conference_proceedings_national"
             value={conference_proceedings_national}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -98,6 +104,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="conference_proceedings_international"
             value={conference_proceedings_international}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -114,6 +121,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="paper_presented_on_conference_national"
             value={paper_presented_on_conference_national}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -126,6 +134,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="paper_presented_on_conference_international"
             value={paper_presented_on_conference_international}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -142,6 +151,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="seminar_speaker_internal"
             value={seminar_speaker_internal}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -154,6 +164,7 @@ const Publication = ({
             onChange={onChangeHandler}
             name="seminar_speaker_external"
             value={seminar_speaker_external}
+            disabled={disable}
           />
         </Grid>
       </Grid>

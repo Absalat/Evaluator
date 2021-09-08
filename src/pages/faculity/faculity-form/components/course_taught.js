@@ -3,16 +3,26 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import React from "react";
 
-const CourseTaught = ({title,courses,courseType,handleAddElement,handleRemoveElement,handleOnChange}) => {
+const CourseTaught = ({
+  title,
+  courses,
+  courseType,
+  handleAddElement,
+  handleRemoveElement,
+  handleOnChange,
+  disable,
+}) => {
   // [{course_name:"", course_code:""}]
   return (
     <>
       <Box display="flex" alignItems="center">
         <Typography>{title}</Typography>
         <Box flexGrow="1" />
-        <IconButton onClick={() => handleAddElement(courseType)}>
-          <AddCircleIcon color="primary" />
-        </IconButton>
+        {!disable && (
+          <IconButton onClick={() => handleAddElement(courseType)}>
+            <AddCircleIcon color="primary" />
+          </IconButton>
+        )}
       </Box>
       {courses.map((_, index) => {
         return (
@@ -22,25 +32,26 @@ const CourseTaught = ({title,courses,courseType,handleAddElement,handleRemoveEle
               label="course code"
               name="course_code"
               margin="dense"
+              value={courses[index].course_code}
               fullWidth
-              onChange={(e)=>handleOnChange(e,courseType,index)}
+              onChange={(e) => handleOnChange(e, courseType, index)}
+              disabled={disable}
             />
-            <Box ml={2}/>
-             <TextField
+            <Box ml={2} />
+            <TextField
               variant="outlined"
               label="course name"
               name="course_name"
               margin="dense"
               fullWidth
-              onChange={(e)=>handleOnChange(e,courseType,index)}
-
+              value={courses[index].course_name}
+              onChange={(e) => handleOnChange(e, courseType, index)}
+              disabled={disable}
             />
 
-            {courses.length > 1 && (
+            {!disable && courses.length > 1 && (
               <IconButton
-                onClick={() =>
-                  handleRemoveElement(courseType, index)
-                }
+                onClick={() => handleRemoveElement(courseType, index)}
               >
                 <HighlightOffIcon color="secondary" />
               </IconButton>

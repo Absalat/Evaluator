@@ -10,7 +10,6 @@ import ProtectedRoute from "./components/protected-route/protected-route";
 import config from "./config";
 import FaculityForm from "./pages/faculity/faculity-form/faculity-form";
 import FaculityProfile from "./pages/faculity/faculity-profile/faculity-profile";
-import FilledFaculityList from "./pages/faculity/filled-faculity-list/filled-faculity-list";
 import SignIn from "./pages/auth/login";
 import Logout from "./pages/auth/logout";
 import UpdatePassword from "./pages/update-password/update-password";
@@ -20,6 +19,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import ChairForm from "./pages/chair/chair-form/chair-form";
 import Users from "./pages/users/users";
 import CenterForm from "./pages/center-form/CenterForm";
+import FacultyFilledForm from "./pages/faculity/faculty-filled-form/faculty-filled-form";
 
 const RootApp = () => {
   const [data, _] = useLocalStorage(config.storage, null);
@@ -82,13 +82,11 @@ function App() {
           </Navigation>
         </ProtectedRoute>
         <ProtectedRoute
-          roles={[config.roles.admin]}
+          roles={[config.roles.faculty]}
           exact
-          path="/faculity/self-evaluation/list"
+          path="/faculity/self-evaluation/view"
         >
-          <Navigation>
-            <FilledFaculityList />
-          </Navigation>
+          <FacultyFilledForm />
         </ProtectedRoute>
         <ProtectedRoute
           roles={[config.roles.chair]}

@@ -6,6 +6,7 @@ const CooperationWithUniversityAbroad = ({
   onChangeHandler,
   faculty_exchange,
   joint_projects,
+  disable
 }) => {
   return (
     <Section title="Cooperation with university abroad">
@@ -18,6 +19,7 @@ const CooperationWithUniversityAbroad = ({
         onChange={onChangeHandler}
         name="faculty_exchange"
         value={faculty_exchange}
+        disabled={disable}
       />
       <TextField
         variant="outlined"
@@ -28,6 +30,7 @@ const CooperationWithUniversityAbroad = ({
         onChange={onChangeHandler}
         name="joint_projects"
         value={joint_projects}
+        disabled={disable}
       />
     </Section>
   );

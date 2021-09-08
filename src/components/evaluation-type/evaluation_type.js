@@ -8,7 +8,12 @@ import {
 import React from "react";
 import Section from "../section/section";
 
-const EvaluationType = ({ onChangeHandler, evaluation_type, semester }) => {
+const EvaluationType = ({
+  onChangeHandler,
+  evaluation_type,
+  semester,
+  disable,
+}) => {
   return (
     <Section>
       <FormControl fullWidth>
@@ -17,6 +22,7 @@ const EvaluationType = ({ onChangeHandler, evaluation_type, semester }) => {
           value={evaluation_type}
           name="evaluation_type"
           onChange={onChangeHandler}
+          disabled={disable}
         >
           <MenuItem value="expected">expected</MenuItem>
           <MenuItem value="achieved">achieved</MenuItem>

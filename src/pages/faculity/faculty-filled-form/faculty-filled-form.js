@@ -1,37 +1,46 @@
 import React, { useEffect, useState } from "react";
 import {
+  Container,
   Box,
-  Button,
-  CircularProgress,
-  Dialog,
-  DialogContent,
-  Snackbar,
+  makeStyles,
+  Typography,
+  Table,
+  TableRow,
+  TableCell,
 } from "@material-ui/core";
-import { useFormik } from "formik";
-import CourseTaught from "./components/course_taught";
-import UniversityLinkage from "./sections/university_linkage";
-import Consultancy from "./sections/consultancy";
-import TechnologyTransfer from "./sections/technoloy_transfer";
-import CommunityEnagement from "./sections/community_engagement";
-import CooperationWithUniversityAbroad from "./sections/cooperation_with_university_abroad";
-import Publication from "./sections/publication";
-import Research from "./sections/research";
-import EntrepreneurialProjects from "./sections/entrepneurial_projects";
-import TeachingLearning from "./sections/teaching_learning";
-import TutoredCourses from "./sections/tutored_courses";
-import Section from "../../../components/section/section";
-import ImprovedCapacity from "./sections/improved_capacity";
+import { useHistory } from "react-router";
 import EvaluationType from "../../../components/evaluation-type/evaluation_type";
-import { connect } from "react-redux";
-import * as faculityFormAction from "../../../store/form/actions";
-import Alert from "@material-ui/lab/Alert";
-import Confirm from "../../../components/confirm/confirm";
-import { useHistory } from "react-router-dom";
-const FaculityForm = (props) => {
+import ImprovedCapacity from "../faculity-form/sections/improved_capacity";
+import CourseTaught from "../faculity-form/components/course_taught";
+import TutoredCourses from "../faculity-form/sections/tutored_courses";
+import TeachingLearning from "../faculity-form/sections/teaching_learning";
+import EntrepreneurialProjects from "../faculity-form/sections/entrepneurial_projects";
+import Research from "../faculity-form/sections/research";
+import Publication from "../faculity-form/sections/publication";
+import CooperationWithUniversityAbroad from "../faculity-form/sections/cooperation_with_university_abroad";
+import UniversityLinkage from "../faculity-form/sections/university_linkage";
+import Consultancy from "../faculity-form/sections/consultancy";
+import TechnologyTransfer from "../faculity-form/sections/technoloy_transfer";
+import CommunityEnagement from "../faculity-form/sections/community_engagement";
+import { useFormik } from "formik";
+import Section from "../../../components/section/section";
+import {connect} from 'react-redux'
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    padding: theme.spacing(2),
+  },
+  underline: {
+    borderBottom: "1px solid",
+    flexGrow: 1,
+    marginLeft: "5px",
+    marginRight: "5px",
+  },
+}));
+const FacultyFilledForm = (props) => {
   const history = useHistory();
-  const [confirmDialog, setConfirmDialog] = useState({
-    open: false,
-  });
+  const classes = useStyles();
+
   const course_types = {
     bsc_course: "bsc_course",
     msc_course: "msc_course",
@@ -58,15 +67,15 @@ const FaculityForm = (props) => {
       tutored_msc_courses: "0",
       tutored_phd_courses: "0",
       // teaching and learning
-      student_feedback_teaching_quality_rating: "1",
-      student_feedback_motivation: "1",
-      student_feedback_overall_satisfaction: "1",
-      teaching_materials_hard_copy: "1",
-      teaching_materials_soft_copy: "1",
-      e_learning_lectures_full_course: "1",
-      e_learning_lectures_part_of_course: "1",
-      tutorial_exercises_num_of_exercises: "1",
-      laboratory_courses_supervised: "1",
+      student_feedback_teaching_quality_rating: "0",
+      student_feedback_motivation: "0",
+      student_feedback_overall_satisfaction: "0",
+      teaching_materials_hard_copy: "0",
+      teaching_materials_soft_copy: "0",
+      e_learning_lectures_full_course: "0",
+      e_learning_lectures_part_of_course: "0",
+      tutorial_exercises_num_of_exercises: "0",
+      laboratory_courses_supervised: "0",
       //Entrepreneurial projects
       bsc_msc_student_advised_partially_done: "0",
       bsc_msc_student_advised_completed: "0",
@@ -126,15 +135,6 @@ const FaculityForm = (props) => {
       values.tought_bsc_courses = tought_bsc_courses;
       values.tought_msc_courses = tought_msc_courses;
       values.tought_phd_courses = tought_phd_courses;
-      setConfirmDialog({
-        open: true,
-        title: "Are you sure ?",
-        message:
-          "Are you sure you want to submit this evaluation? This action is not reverable. ",
-        onConfirm: () => {
-          props.submitFaculitySelfEvaluation(values);
-        },
-      });
     },
   });
 
@@ -212,40 +212,28 @@ const FaculityForm = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (props.faculitySelfEvaludation.submitSuccess) {
-      //redirect to the success view page.
-      history.push("/faculity/self-evaluation/view");
+  useEffect(()=>{
+    if(props.faculitySelfEvaludation.submitSuccess){
+      const data = props.faculitySelfEvaludation.submitSuccess;
+      formik.setValues(data);
+      setTought_bsc_courses(data.tought_bsc_courses);
+      setTought_msc_courses(data.tought_msc_courses);
+      setTought_phd_courses(data.tought_msc_courses);
     }
-  }, [props.faculitySelfEvaludation]);
+  },[props.faculitySelfEvaludation])
+
   return (
-    <div>
-      <Confirm
-        confirmDialog={confirmDialog}
-        setConfirmDialog={setConfirmDialog}
-      />
-     
-      <Snackbar
-        autoHideDuration={1000}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={props.faculitySelfEvaludation.error}
-        onClose={props.resetSubmitFaculitySelfEvaluation}
-      >
-        <Alert severity="error">{props.faculitySelfEvaludation.error}</Alert>
-      </Snackbar>
-      <Dialog open={props.faculitySelfEvaludation.isLoading}>
-        <DialogContent>
-          <CircularProgress disableShrink />
-        </DialogContent>
-      </Dialog>
+    <div className={classes.wrapper}>
       <form onSubmit={formik.handleSubmit}>
         <EvaluationType
+          disable
           onChangeHandler={formik.handleChange}
           semester={formik.values.semester}
           evaluation_type={formik.values.evaluation_type}
         />
         <Box my={2} />
         <ImprovedCapacity
+          disable
           hdp_training={formik.values.hdp_training}
           entrepreneurship_training={formik.values.entrepreneurship_training}
           higher_degree_earned={formik.values.higher_degree_earned}
@@ -258,6 +246,7 @@ const FaculityForm = (props) => {
         <Section title="Course Taught">
           <Box mt={2} />
           <CourseTaught
+            disable
             title="B.Sc Courses"
             courseType={course_types.bsc_course}
             courses={tought_bsc_courses}
@@ -267,6 +256,7 @@ const FaculityForm = (props) => {
           />
           <Box mt={2} />
           <CourseTaught
+            disable
             title="M.Sc Courses"
             courseType={course_types.msc_course}
             courses={tought_msc_courses}
@@ -276,6 +266,7 @@ const FaculityForm = (props) => {
           />
           <Box mt={2} />
           <CourseTaught
+            disable
             title="PhD Courses"
             courseType={course_types.phd_course}
             courses={tought_phd_courses}
@@ -286,6 +277,7 @@ const FaculityForm = (props) => {
         </Section>
         <Box my={2} />
         <TutoredCourses
+          disable
           tutored_bsc_courses={formik.values.tutored_bsc_courses}
           tutored_msc_courses={formik.values.tutored_msc_courses}
           tutored_phd_courses={formik.values.tutored_phd_courses}
@@ -293,6 +285,7 @@ const FaculityForm = (props) => {
         />
         <Box my={2} />
         <TeachingLearning
+          disable
           onChangeHandler={formik.handleChange}
           student_feedback_teaching_quality_rating={
             formik.values.student_feedback_teaching_quality_rating
@@ -324,6 +317,7 @@ const FaculityForm = (props) => {
         />
         <Box my={2} />
         <EntrepreneurialProjects
+          disable
           onChangeHandler={formik.handleChange}
           bsc_msc_student_advised_partially_done={
             formik.values.bsc_msc_student_advised_partially_done
@@ -346,6 +340,7 @@ const FaculityForm = (props) => {
         />
         <Box mt={2} />
         <Research
+          disable
           onChangeHandler={formik.handleChange}
           num_of_research_grants_applied_internal={
             formik.values.num_of_research_grants_applied_internal
@@ -374,6 +369,7 @@ const FaculityForm = (props) => {
         />
         <Box mt={2} />
         <Publication
+          disable
           onChangeHandler={formik.handleChange}
           published_journal_papers_national={
             formik.values.published_journal_papers_national
@@ -407,9 +403,11 @@ const FaculityForm = (props) => {
           onChangeHandler={formik.handleChange}
           faculty_exchange={formik.values.faculty_exchange}
           joint_projects={formik.values.joint_projects}
+          disable
         />
         <Box mt={2} />
         <UniversityLinkage
+          disable
           onChangeHandler={formik.handleChange}
           invited_industrialists_number={
             formik.values.invited_industrialists_number
@@ -432,6 +430,7 @@ const FaculityForm = (props) => {
         />
         <Box mt={2} />
         <Consultancy
+          disable
           onChangeHandler={formik.handleChange}
           num_of_consulting_services_initiated={
             formik.values.num_of_consulting_services_initiated
@@ -451,9 +450,11 @@ const FaculityForm = (props) => {
           it_projects_completed={formik.values.it_projects_completed}
           patented_research_outputs={formik.values.patented_research_outputs}
           enterprise_encubated={formik.values.enterprise_encubated}
+          disable
         />
         <Box mt={2} />
         <CommunityEnagement
+          disable
           onChangeHandler={formik.handleChange}
           num_of_community_services_initiated={
             formik.values.num_of_community_services_initiated
@@ -463,27 +464,79 @@ const FaculityForm = (props) => {
           }
           num_of_benefited_parties={formik.values.num_of_benefited_parties}
         />
-        <Box mt={2} />
-        <Box display="flex" justifyContent="flex-end">
-          <Button type="submit" color="primary" variant="contained">
-            submit
-          </Button>
-        </Box>
+        <Table>
+          <TableRow>
+            <TableCell>
+              <Typography>Prepared By</Typography>
+            </TableCell>
+            <TableCell>
+              <Box display="flex">
+                <Typography>Name of faculty</Typography>
+                <Box className={classes.underline} />
+              </Box>
+            </TableCell>
+            <TableCell>
+              <Box display="flex">
+                <Typography>Date</Typography>
+                <Box className={classes.underline} />
+              </Box>
+              <Box display="flex">
+                <Typography>Signature</Typography>
+                <Box className={classes.underline} />
+              </Box>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <Typography>Checkeds By</Typography>
+            </TableCell>
+            <TableCell>
+              <Box display="flex">
+                <Typography>Chair Heads</Typography>
+                <Box className={classes.underline} />
+              </Box>
+            </TableCell>
+            <TableCell>
+              <Box display="flex">
+                <Typography>Date</Typography>
+                <Box className={classes.underline} />
+              </Box>
+              <Box display="flex">
+                <Typography>Signature</Typography>
+                <Box className={classes.underline} />
+              </Box>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <Typography>Approved By</Typography>
+            </TableCell>
+            <TableCell>
+              <Box display="flex">
+                <Typography>Dean/Heads</Typography>
+                <Box className={classes.underline} />
+              </Box>
+            </TableCell>
+            <TableCell>
+              <Box display="flex">
+                <Typography>Date</Typography>
+                <Box className={classes.underline} />
+              </Box>
+              <Box display="flex">
+                <Typography>Signature</Typography>
+                <Box className={classes.underline} />
+              </Box>
+            </TableCell>
+          </TableRow>
+        </Table>
       </form>
     </div>
   );
 };
+
 const mapStateToProps = (state) => {
   return {
     faculitySelfEvaludation: state.form.faculitySelfEvaludation,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitFaculitySelfEvaluation: (evaluation) =>
-      dispatch(faculityFormAction.submitFaculitySelfEvaluation(evaluation)),
-    resetSubmitFaculitySelfEvaluation: () =>
-      dispatch(faculityFormAction.resetSubmitFaculitySelfEvaluation()),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(FaculityForm);
+export default connect(mapStateToProps)(FacultyFilledForm);

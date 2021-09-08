@@ -1,4 +1,14 @@
-import { Box, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select } from "@material-ui/core";
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+} from "@material-ui/core";
 import React from "react";
 import Section from "../../../../components/section/section";
 
@@ -8,11 +18,12 @@ const ImprovedCapacity = ({
   entrepreneurship_training,
   other_trainings_skills_gained,
   higher_degree_earned,
+  disable,
 }) => {
   return (
     <Section title="Improved capacity or skills">
       <Box mt={2} />
-      <FormControl fullWidth>
+      <FormControl fullWidth disabled={disable}>
         <FormLabel>HDP Training</FormLabel>
         <RadioGroup
           row
@@ -33,7 +44,7 @@ const ImprovedCapacity = ({
         </RadioGroup>
       </FormControl>
 
-      <FormControl fullWidth>
+      <FormControl fullWidth disabled={disable}>
         <FormLabel>Entrepreneurship Training</FormLabel>
         <RadioGroup
           row
@@ -54,7 +65,7 @@ const ImprovedCapacity = ({
         </RadioGroup>
       </FormControl>
 
-      <FormControl fullWidth>
+      <FormControl fullWidth disabled={disable}>
         <FormLabel>Other Training/ Skill Gained</FormLabel>
         <RadioGroup
           row
@@ -75,7 +86,7 @@ const ImprovedCapacity = ({
         </RadioGroup>
       </FormControl>
       <Box mt={2} />
-      <FormControl fullWidth>
+      <FormControl fullWidth disabled={disable}>
         <InputLabel>Higher Degree Earned</InputLabel>
         <Select
           value={higher_degree_earned}

@@ -12,6 +12,7 @@ const Research = ({
   phd_students_supervision_completed,
   msc_students_supervision_enrolled,
   msc_students_supervision_completed,
+  disable
 }) => {
   return (
     <Section title="Research">
@@ -28,6 +29,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="num_of_research_grants_applied_internal"
             value={num_of_research_grants_applied_internal}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -40,6 +42,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="num_of_research_grants_applied_external"
             value={num_of_research_grants_applied_external}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -56,6 +59,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="amount_of_grant_secured_internal"
             value={amount_of_grant_secured_internal}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -68,6 +72,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="amount_of_grant_secured_external"
             value={amount_of_grant_secured_external}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -84,6 +89,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="phd_students_supervision_enrolled"
             value={phd_students_supervision_enrolled}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -96,6 +102,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="phd_students_supervision_completed"
             value={phd_students_supervision_completed}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -112,6 +119,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="msc_students_supervision_enrolled"
             value={msc_students_supervision_enrolled}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -124,6 +132,7 @@ const Research = ({
             onChange={onChangeHandler}
             name="msc_students_supervision_completed"
             value={msc_students_supervision_completed}
+            disabled={disable}
           />
         </Grid>
       </Grid>

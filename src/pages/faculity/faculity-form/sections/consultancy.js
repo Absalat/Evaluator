@@ -7,7 +7,8 @@ const Consultancy = ({
   num_of_consulting_services_initiated,
   num_of_consulting_services_completed,
   consulting_income_generated,
-  short_term_training
+  short_term_training,
+  disable
 }) => {
   return (
     <Section title="Consultancy">
@@ -20,6 +21,7 @@ const Consultancy = ({
         onChange={onChangeHandler}
         name="short_term_training"
         value={short_term_training}
+        disabled={disable}
       />
       <Box mt={2} />
       <Typography>No. consult. services</Typography>
@@ -34,6 +36,7 @@ const Consultancy = ({
             onChange={onChangeHandler}
             name="num_of_consulting_services_initiated"
             value={num_of_consulting_services_initiated}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -46,6 +49,7 @@ const Consultancy = ({
             onChange={onChangeHandler}
             name="num_of_consulting_services_completed"
             value={num_of_consulting_services_completed}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -58,6 +62,7 @@ const Consultancy = ({
         onChange={onChangeHandler}
         name="consulting_income_generated"
         value={consulting_income_generated}
+        disabled={disable}
       />
     </Section>
   );

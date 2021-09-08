@@ -14,6 +14,7 @@ const TeachingLearning = ({
   e_learning_lectures_part_of_course,
   tutorial_exercises_num_of_exercises,
   laboratory_courses_supervised,
+  disable
 }) => {
   return (
     <Section title="Teaching and Learning">
@@ -23,18 +24,21 @@ const TeachingLearning = ({
         name="student_feedback_teaching_quality_rating"
         value={student_feedback_teaching_quality_rating}
         onChangeHandler={onChangeHandler}
+        disable={disable}
       />
       <StudentFeedback
         label="Motivation"
         name="student_feedback_motivation"
         value={student_feedback_motivation}
         onChangeHandler={onChangeHandler}
+        disable={disable}
       />
       <StudentFeedback
         label="Overall Satisfaction"
         name="student_feedback_overall_satisfaction"
         value={student_feedback_overall_satisfaction}
         onChangeHandler={onChangeHandler}
+        disable={disable}
       />
       <Box mt={2} />
       <Typography>Teaching Materials</Typography>
@@ -49,6 +53,7 @@ const TeachingLearning = ({
             name="teaching_materials_hard_copy"
             onChange={onChangeHandler}
             fullWidth
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -61,6 +66,7 @@ const TeachingLearning = ({
             value={teaching_materials_soft_copy}
             name="teaching_materials_soft_copy"
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -77,6 +83,7 @@ const TeachingLearning = ({
             value={e_learning_lectures_full_course}
             name="e_learning_lectures_full_course"
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -89,6 +96,7 @@ const TeachingLearning = ({
             value={e_learning_lectures_part_of_course}
             name="e_learning_lectures_part_of_course"
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -103,6 +111,7 @@ const TeachingLearning = ({
         value={tutorial_exercises_num_of_exercises}
         name="tutorial_exercises_num_of_exercises"
         onChange={onChangeHandler}
+        disabled={disable}
       />
       <TextField
         variant="outlined"
@@ -113,6 +122,7 @@ const TeachingLearning = ({
         value={laboratory_courses_supervised}
         name="laboratory_courses_supervised"
         onChange={onChangeHandler}
+        disabled={disable}
       />
     </Section>
   );

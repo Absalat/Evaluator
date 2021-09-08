@@ -26,6 +26,7 @@ function* handleSubmitFaculitySelfEvaluation(action) {
     if (response.statusText === "OK") {
       yield put({
         type: types.FACULITY_SELF_EVALUATION_SUBMIT_SUCCESS,
+        payload: response.data.data
       });
     }
   } catch (error) {

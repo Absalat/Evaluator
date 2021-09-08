@@ -9,7 +9,8 @@ const UniversityLinkage = ({
   invited_industrialists_num_of_joint_projects,
   industry_projects_initiated,
   industry_projects_completed,
-  mentoring_internship_students_number
+  mentoring_internship_students_number,
+  disable
 }) => {
   return (
     <Section title="University industry linkage">
@@ -24,6 +25,7 @@ const UniversityLinkage = ({
         onChange={onChangeHandler}
         name="invited_industrialists_number"
         value={invited_industrialists_number}
+        disabled={disable}
       />
       <TextField
         variant="outlined"
@@ -34,6 +36,7 @@ const UniversityLinkage = ({
         onChange={onChangeHandler}
         name="invited_industrialists_percent_course_covered"
         value={invited_industrialists_percent_course_covered}
+        disabled={disable}
 
       />
       <TextField
@@ -45,6 +48,7 @@ const UniversityLinkage = ({
         onChange={onChangeHandler}
         name="invited_industrialists_num_of_joint_projects"
         value={invited_industrialists_num_of_joint_projects}
+        disabled={disable}
       />
       <Box mt={2} />
       <Typography>Industry Projects</Typography>
@@ -59,6 +63,7 @@ const UniversityLinkage = ({
             onChange={onChangeHandler}
             name="industry_projects_initiated"
             value={industry_projects_initiated}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -71,6 +76,7 @@ const UniversityLinkage = ({
             onChange={onChangeHandler}
             name="industry_projects_completed"
             value={industry_projects_completed}
+            disabled={disable}
           />
         </Grid>
       </Grid>
@@ -85,6 +91,7 @@ const UniversityLinkage = ({
         onChange={onChangeHandler}
         name="mentoring_internship_students_number"
         value={mentoring_internship_students_number}
+        disabled={disable}
       />
     </Section>
   );

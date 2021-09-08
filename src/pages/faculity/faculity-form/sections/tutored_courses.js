@@ -6,7 +6,8 @@ const TutoredCourses = ({
   tutored_bsc_courses,
   tutored_msc_courses,
   tutored_phd_courses,
-  onChangeHandler
+  onChangeHandler,
+  disable
 }) => {
   return (
     <Section title="Tutored Courses">
@@ -25,6 +26,7 @@ const TutoredCourses = ({
               min:0
             }}
             fullWidth
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -37,6 +39,7 @@ const TutoredCourses = ({
             value={tutored_msc_courses}
             name="tutored_msc_courses"
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -49,6 +52,7 @@ const TutoredCourses = ({
             value={tutored_phd_courses}
             name="tutored_phd_courses"
             onChange={onChangeHandler}
+            disabled={disable}
           />
         </Grid>
       </Grid>

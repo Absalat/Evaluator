@@ -4,7 +4,7 @@ const initialState = {
   faculitySelfEvaludation: {
     isLoading: false,
     error: null,
-    submitSuccess: false,
+    submitSuccess: null,
   },
   chairSelfEvaluation: {
     isLoading: false,
@@ -25,7 +25,7 @@ const formReducer = (state = initialState, action) => {
         faculitySelfEvaludation: {
           isLoading: true,
           error: null,
-          submitSuccess: false,
+          submitSuccess: null,
         },
       };
     }
@@ -35,7 +35,7 @@ const formReducer = (state = initialState, action) => {
         faculitySelfEvaludation: {
           isLoading: false,
           error: null,
-          submitSuccess: true,
+          submitSuccess: action.payload,
         },
       };
     }
@@ -45,7 +45,7 @@ const formReducer = (state = initialState, action) => {
         faculitySelfEvaludation: {
           isLoading: false,
           error: action.payload,
-          submitSuccess: false,
+          submitSuccess: null,
         },
       };
     }
@@ -55,7 +55,7 @@ const formReducer = (state = initialState, action) => {
         faculitySelfEvaludation: {
           isLoading: false,
           error: null,
-          submitSuccess: false,
+          submitSuccess: null,
         },
       };
     }
