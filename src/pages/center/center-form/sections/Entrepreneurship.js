@@ -1,32 +1,46 @@
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import Section from "./modules/Section";
 
-const Publication = ({
+const Entrepreneurship = ({
     onChangeHandler,
-    published_journal_papers_national,
-    published_journal_papers_international,
-    submitted_journal_papers_national,
-    submitted_journal_papers_international,
-    conference_proceedings_national,
-    conference_proceedings_international,
+    courses_num_of_students,
+    training_num_of_trainings,
+    training_num_of_students,
+    project_num_of_projects,
+    project_num_of_students,
+    num_of_motivational_programs,
+    num_of_motivational_program_atendees,
     disable,
 }) => {
     return (
-        <Section title="Publication">
-            <Box mt={1} />
-            <Typography>Published Journal papers</Typography>
+        <Section title="Entrepreneurship">
+            <Box mt={2} />
+            <Typography>Courses</Typography>
+            <TextField
+                variant="outlined"
+                type="number"
+                label="Number of students"
+                margin="dense"
+                fullWidth
+                name="courses_num_of_students"
+                value={courses_num_of_students}
+                onChange={onChangeHandler}
+                disabled={disable}
+            />
+            <Box mt={2} />
+            <Typography>Training</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="National"
                         margin="dense"
-                        fullWidth
-                        name="published_journal_papers_national"
-                        value={published_journal_papers_national}
+                        label="Number of trainings"
+                        name={"training_num_of_trainings"}
+                        value={training_num_of_trainings}
                         onChange={onChangeHandler}
+                        fullWidth
                         disabled={disable}
                     />
                 </Grid>
@@ -34,28 +48,28 @@ const Publication = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="International"
+                        label="Number of students"
                         margin="dense"
                         fullWidth
-                        name="published_journal_papers_international"
-                        value={published_journal_papers_international}
+                        name="training_num_of_students"
+                        value={training_num_of_students}
                         onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>Submitted journal papers</Typography>
+            <Box mt={2} />
+            <Typography>Project</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="National"
                         margin="dense"
+                        label="Number of projects"
                         fullWidth
-                        name="submitted_journal_papers_national"
-                        value={submitted_journal_papers_national}
+                        name="project_num_of_projects"
+                        value={project_num_of_projects}
                         onChange={onChangeHandler}
                         disabled={disable}
                     />
@@ -64,28 +78,28 @@ const Publication = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="International"
+                        label="Number of students"
                         margin="dense"
                         fullWidth
-                        name="submitted_journal_papers_international"
-                        value={submitted_journal_papers_international}
+                        name="project_num_of_students"
+                        value={project_num_of_students}
                         onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>Conference Proceedings</Typography>
+            <Box mt={2} />
+            <Typography>Motivational Programs</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="National"
                         margin="dense"
+                        label="Number of programs"
                         fullWidth
-                        name="conference_proceedings_national"
-                        value={conference_proceedings_national}
+                        name="num_of_motivational_programs"
+                        value={num_of_motivational_programs}
                         onChange={onChangeHandler}
                         disabled={disable}
                     />
@@ -94,11 +108,11 @@ const Publication = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="International"
+                        label="Number of attendees"
                         margin="dense"
                         fullWidth
-                        name="conference_proceedings_international"
-                        value={conference_proceedings_international}
+                        name="num_of_motivational_program_atendees"
+                        value={num_of_motivational_program_atendees}
                         onChange={onChangeHandler}
                         disabled={disable}
                     />
@@ -108,4 +122,4 @@ const Publication = ({
     );
 };
 
-export default Publication;
+export default Entrepreneurship;

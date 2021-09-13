@@ -1,6 +1,6 @@
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import Section from "./modules/Section";
 
 const Research = ({
     onChangeHandler,
@@ -12,12 +12,11 @@ const Research = ({
     phd_students_supervision_completed,
     msc_students_supervision_enrolled,
     msc_students_supervision_completed,
-    msc_students_supervision_manuscripts_produced,
     disable,
 }) => {
     return (
         <Section title="Research">
-            <Box mt={1} />
+            <Box mt={2} />
             <Typography>No. research grants applied</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
@@ -27,9 +26,9 @@ const Research = ({
                         label="Internal"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="num_of_research_grant_applied_internal"
                         value={num_of_research_grant_applied_internal}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
@@ -40,15 +39,15 @@ const Research = ({
                         label="External"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="num_of_research_grant_applied_external"
                         value={num_of_research_grant_applied_external}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>Amount Of grant secured</Typography>
+            <Box mt={2} />
+            <Typography>Amount of grant secured</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
@@ -57,9 +56,9 @@ const Research = ({
                         label="Internal"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="amount_of_grant_secured_internal"
                         value={amount_of_grant_secured_internal}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
@@ -70,26 +69,26 @@ const Research = ({
                         label="External"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="amount_of_grant_secured_external"
                         value={amount_of_grant_secured_external}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
+            <Box mt={2} />
             <Typography>PhD students supervision</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Internal"
+                        label="Enrolled"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="phd_students_supervision_enrolled"
                         value={phd_students_supervision_enrolled}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
@@ -97,55 +96,42 @@ const Research = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="External"
+                        label="Completed"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="phd_students_supervision_completed"
                         value={phd_students_supervision_completed}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
+            <Box mt={2} />
             <Typography>M.Sc students supervision</Typography>
             <Grid container spacing={2}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
                         label="Enrolled"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="msc_students_supervision_enrolled"
                         value={msc_students_supervision_enrolled}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
                         label="Completed"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="msc_students_supervision_completed"
                         value={msc_students_supervision_completed}
-                        onChange={onChangeHandler}
-                        disabled={disable}
-                    />
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <TextField
-                        variant="outlined"
-                        type="number"
-                        label="Manuscripts produced"
-                        margin="dense"
-                        fullWidth
-                        name="msc_students_supervision_manuscripts_produced"
-                        value={msc_students_supervision_manuscripts_produced}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>

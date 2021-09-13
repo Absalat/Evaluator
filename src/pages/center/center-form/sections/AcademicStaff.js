@@ -1,42 +1,42 @@
-import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import { Box, Grid, TextField } from "@material-ui/core";
+import Section from "./modules/Section";
 
-const StaffCapacityBuilding = ({
+function AcademicStaff({
     onChangeHandler,
-    hdp_training,
-    higher_degree_study_started,
-    higher_degree_study_completed,
-    special_training_started,
-    special_training_completed,
+    technical_staffs,
+    asst_lecturers,
+    lecturers,
+    asst_profesors,
+    assoc_professors,
+    profesors,
     disable,
-}) => {
+}) {
     return (
-        <Section title="Staff Capacity Building">
+        <Section title="Academic Staff Profile">
+            <Box mt={2} />
             <TextField
                 variant="outlined"
                 type="number"
-                label="HDP training"
                 margin="dense"
+                label="Technical Staffs"
                 fullWidth
-                name="hdp_training"
-                value={hdp_training}
                 onChange={onChangeHandler}
+                name="technical_staffs"
+                value={technical_staffs}
                 disabled={disable}
             />
-            <Box mt={1} />
-            <Typography>Study for Higher degree</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Started"
+                        label="Asst. Lecturers"
                         margin="dense"
                         fullWidth
-                        name="higher_degree_study_started"
-                        value={higher_degree_study_started}
                         onChange={onChangeHandler}
+                        name="asst_lecturers"
+                        value={asst_lecturers}
                         disabled={disable}
                     />
                 </Grid>
@@ -44,48 +44,59 @@ const StaffCapacityBuilding = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Completed"
+                        label="Lecturers"
                         margin="dense"
                         fullWidth
-                        name="higher_degree_study_completed"
-                        value={higher_degree_study_completed}
                         onChange={onChangeHandler}
+                        name="lecturers"
+                        value={lecturers}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>Other special training</Typography>
             <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Started"
+                        label="Asst. Professors"
                         margin="dense"
                         fullWidth
-                        name="special_training_started"
-                        value={special_training_started}
                         onChange={onChangeHandler}
+                        name="asst_profesors"
+                        value={asst_profesors}
                         disabled={disable}
                     />
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={4}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Completed"
+                        label="Asso. Professors"
                         margin="dense"
                         fullWidth
-                        name="special_training_completed"
-                        value={special_training_completed}
                         onChange={onChangeHandler}
+                        name="assoc_professors"
+                        value={assoc_professors}
+                        disabled={disable}
+                    />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                    <TextField
+                        variant="outlined"
+                        type="number"
+                        margin="dense"
+                        label="Professors"
+                        fullWidth
+                        onChange={onChangeHandler}
+                        name="profesors"
+                        value={profesors}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
         </Section>
     );
-};
+}
 
-export default StaffCapacityBuilding;
+export default AcademicStaff;

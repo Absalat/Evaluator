@@ -1,6 +1,6 @@
-import { Box, TextField } from "@material-ui/core";
+import { TextField, Box } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import Section from "./modules/Section";
 
 const CooperationWithUniversityAbroad = ({
     onChangeHandler,
@@ -10,38 +10,39 @@ const CooperationWithUniversityAbroad = ({
     disable,
 }) => {
     return (
-        <Section title="Cooperation with university abroad">
+        <Section title="Cooperation with University abroad">
+            <Box mt={2} />
             <TextField
                 variant="outlined"
                 type="number"
-                label="Faculty exchanges"
                 margin="dense"
+                label="Faculity exchanges"
                 fullWidth
+                onChange={onChangeHandler}
                 name="faculty_exchanges"
                 value={faculty_exchanges}
-                onChange={onChangeHandler}
                 disabled={disable}
             />
             <TextField
                 variant="outlined"
                 type="number"
-                label="Student exchanges"
                 margin="dense"
+                label="Student exchanges"
                 fullWidth
+                onChange={onChangeHandler}
                 name="student_exchanges"
                 value={student_exchanges}
-                onChange={onChangeHandler}
                 disabled={disable}
             />
             <TextField
                 variant="outlined"
                 type="number"
-                label="Joint projects"
                 margin="dense"
+                label="Joint projects"
                 fullWidth
+                onChange={onChangeHandler}
                 name="joint_projects"
                 value={joint_projects}
-                onChange={onChangeHandler}
                 disabled={disable}
             />
         </Section>

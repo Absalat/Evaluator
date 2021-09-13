@@ -1,35 +1,36 @@
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import Section from "./modules/Section";
 
-const Research = ({
+const Publication = ({
     onChangeHandler,
-    num_of_research_grant_applied_internal,
-    num_of_research_grant_applied_external,
-    amount_of_grant_secured_internal,
-    amount_of_grant_secured_external,
-    phd_students_supervision_enrolled,
-    phd_students_supervision_completed,
-    msc_students_supervision_enrolled,
-    msc_students_supervision_completed,
-    msc_students_supervision_manuscripts_produced,
+    published_journal_papers_national,
+    published_journal_papers_international,
+    submitted_journal_papers_national,
+    submitted_journal_papers_international,
+    conference_proceedings_national,
+    conference_proceedings_international,
+    conference_workshop_organized_national,
+    conference_workshop_organized_international,
+    seminar_school_speaker,
+    seminar_external_speaker,
     disable,
 }) => {
     return (
-        <Section title="Research">
-            <Box mt={1} />
-            <Typography>No. research grants applied</Typography>
+        <Section title="Publication">
+            <Box mt={2} />
+            <Typography>Published Journal papers</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Internal"
+                        label="National"
                         margin="dense"
                         fullWidth
-                        name="num_of_research_grant_applied_internal"
-                        value={num_of_research_grant_applied_internal}
                         onChange={onChangeHandler}
+                        name="published_journal_papers_national"
+                        value={published_journal_papers_national}
                         disabled={disable}
                     />
                 </Grid>
@@ -37,29 +38,29 @@ const Research = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="External"
+                        label="International"
                         margin="dense"
                         fullWidth
-                        name="num_of_research_grant_applied_external"
-                        value={num_of_research_grant_applied_external}
                         onChange={onChangeHandler}
+                        name="published_journal_papers_international"
+                        value={published_journal_papers_international}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>Amount Of grant secured</Typography>
+            <Box mt={2} />
+            <Typography>Submitted Journal Papers</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Internal"
+                        label="National"
                         margin="dense"
                         fullWidth
-                        name="amount_of_grant_secured_internal"
-                        value={amount_of_grant_secured_internal}
                         onChange={onChangeHandler}
+                        name="submitted_journal_papers_national"
+                        value={submitted_journal_papers_national}
                         disabled={disable}
                     />
                 </Grid>
@@ -67,29 +68,29 @@ const Research = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="External"
+                        label="International"
                         margin="dense"
                         fullWidth
-                        name="amount_of_grant_secured_external"
-                        value={amount_of_grant_secured_external}
                         onChange={onChangeHandler}
+                        name="submitted_journal_papers_international"
+                        value={submitted_journal_papers_international}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>PhD students supervision</Typography>
+            <Box mt={2} />
+            <Typography>Conference Preceedings</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Internal"
+                        label="National"
                         margin="dense"
                         fullWidth
-                        name="phd_students_supervision_enrolled"
-                        value={phd_students_supervision_enrolled}
                         onChange={onChangeHandler}
+                        name="conference_proceedings_national"
+                        value={conference_proceedings_national}
                         disabled={disable}
                     />
                 </Grid>
@@ -97,55 +98,72 @@ const Research = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="External"
+                        label="International"
                         margin="dense"
                         fullWidth
-                        name="phd_students_supervision_completed"
-                        value={phd_students_supervision_completed}
                         onChange={onChangeHandler}
+                        name="conference_proceedings_international"
+                        value={conference_proceedings_international}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>M.Sc students supervision</Typography>
+            <Box mt={2} />
+            <Typography>Conference / Workshop organized</Typography>
             <Grid container spacing={2}>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Enrolled"
+                        label="National"
                         margin="dense"
                         fullWidth
-                        name="msc_students_supervision_enrolled"
-                        value={msc_students_supervision_enrolled}
                         onChange={onChangeHandler}
+                        name="conference_workshop_organized_national"
+                        value={conference_workshop_organized_national}
                         disabled={disable}
                     />
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Completed"
+                        label="International"
                         margin="dense"
                         fullWidth
-                        name="msc_students_supervision_completed"
-                        value={msc_students_supervision_completed}
                         onChange={onChangeHandler}
+                        name="conference_workshop_organized_international"
+                        value={conference_workshop_organized_international}
                         disabled={disable}
                     />
                 </Grid>
-                <Grid item xs={12} md={4}>
+            </Grid>
+            <Box mt={2} />
+            <Typography>Seminar</Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Manuscripts produced"
+                        label="School Speaker"
                         margin="dense"
                         fullWidth
-                        name="msc_students_supervision_manuscripts_produced"
-                        value={msc_students_supervision_manuscripts_produced}
                         onChange={onChangeHandler}
+                        name="seminar_school_speaker"
+                        value={seminar_school_speaker}
+                        disabled={disable}
+                    />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <TextField
+                        variant="outlined"
+                        type="number"
+                        label="External Speaker"
+                        margin="dense"
+                        fullWidth
+                        onChange={onChangeHandler}
+                        name="seminar_external_speaker"
+                        value={seminar_external_speaker}
                         disabled={disable}
                     />
                 </Grid>
@@ -154,4 +172,4 @@ const Research = ({
     );
 };
 
-export default Research;
+export default Publication;

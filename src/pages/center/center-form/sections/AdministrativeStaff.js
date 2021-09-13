@@ -1,51 +1,52 @@
-import { Box, TextField } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import { Box, TextField } from "@material-ui/core";
+import Section from "./modules/Section";
 
-const CooperationWithUniversityAbroad = ({
+function AdministrativeStaff({
     onChangeHandler,
-    faculty_exchanges,
-    student_exchanges,
-    joint_projects,
+    administrators,
+    secretaries,
+    research_staffs,
     disable,
-}) => {
+}) {
     return (
-        <Section title="Cooperation with university abroad">
+        <Section title="Administrative Staff Profile">
+            <Box mt={2} />
             <TextField
                 variant="outlined"
                 type="number"
-                label="Faculty exchanges"
                 margin="dense"
+                label="Adminstrator"
                 fullWidth
-                name="faculty_exchanges"
-                value={faculty_exchanges}
                 onChange={onChangeHandler}
+                name="administrators"
+                value={administrators}
                 disabled={disable}
             />
             <TextField
                 variant="outlined"
                 type="number"
-                label="Student exchanges"
                 margin="dense"
+                label="Secretaries"
                 fullWidth
-                name="student_exchanges"
-                value={student_exchanges}
                 onChange={onChangeHandler}
+                name="secretaries"
+                value={secretaries}
                 disabled={disable}
             />
             <TextField
                 variant="outlined"
                 type="number"
-                label="Joint projects"
                 margin="dense"
+                label="Research Staffs"
                 fullWidth
-                name="joint_projects"
-                value={joint_projects}
                 onChange={onChangeHandler}
+                name="research_staffs"
+                value={research_staffs}
                 disabled={disable}
             />
         </Section>
     );
-};
+}
 
-export default CooperationWithUniversityAbroad;
+export default AdministrativeStaff;

@@ -1,8 +1,8 @@
 import { Box, Grid, TextField, Typography } from "@material-ui/core";
 import React from "react";
-import Section from "../../../../components/section/section";
+import Section from "./modules/Section";
 
-const UniversityIndustryLinkage = ({
+const UniversityLinkage = ({
     onChangeHandler,
     partnership_established_mou_signed,
     partnership_established_joint_workshops,
@@ -12,8 +12,8 @@ const UniversityIndustryLinkage = ({
 }) => {
     return (
         <Section title="University industry linkage">
-            <Box mt={1} />
-            <Typography>Partnership established</Typography>
+            <Box mt={2} />
+            <Typography>Partnership Established</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
@@ -22,9 +22,9 @@ const UniversityIndustryLinkage = ({
                         label="MoU signed"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="partnership_established_mou_signed"
                         value={partnership_established_mou_signed}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
@@ -32,18 +32,18 @@ const UniversityIndustryLinkage = ({
                     <TextField
                         variant="outlined"
                         type="number"
-                        label="Joint w/shops"
+                        label="Joint workshops"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="partnership_established_joint_workshops"
                         value={partnership_established_joint_workshops}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
             </Grid>
-            <Box mt={1} />
-            <Typography>Conference Proceedings</Typography>
+            <Box mt={2} />
+            <Typography>Industry Projects</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <TextField
@@ -52,9 +52,9 @@ const UniversityIndustryLinkage = ({
                         label="Initiated"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="industry_projects_initiated"
                         value={industry_projects_initiated}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
@@ -65,9 +65,9 @@ const UniversityIndustryLinkage = ({
                         label="Completed"
                         margin="dense"
                         fullWidth
+                        onChange={onChangeHandler}
                         name="industry_projects_completed"
                         value={industry_projects_completed}
-                        onChange={onChangeHandler}
                         disabled={disable}
                     />
                 </Grid>
@@ -76,4 +76,4 @@ const UniversityIndustryLinkage = ({
     );
 };
 
-export default UniversityIndustryLinkage;
+export default UniversityLinkage;
