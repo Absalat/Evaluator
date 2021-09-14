@@ -223,6 +223,10 @@ const FacultyFilledForm = (props) => {
         }
     }, [props.faculitySelfEvaludation]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className={classes.wrapper}>
             <form onSubmit={formik.handleSubmit}>
