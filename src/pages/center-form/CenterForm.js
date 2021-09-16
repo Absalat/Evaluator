@@ -29,10 +29,12 @@ import { connect } from "react-redux";
 import * as formActions from "../../store/form/actions";
 import Confirm from "../../components/confirm/confirm";
 import Alert from "@material-ui/lab/Alert";
+import { useHistory } from "react-router-dom";
 function CenterForm(props) {
   const [confirmDialog, setConfirmDialog] = useState({
     open: false,
   });
+  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       // evaluation type

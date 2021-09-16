@@ -18,7 +18,7 @@ import PageNotFound from "./pages/404/404";
 import useLocalStorage from "./hooks/useLocalStorage";
 import ChairForm from "./pages/chair/chair-form/chair-form";
 import Users from "./pages/users/users";
-import CenterForm from "./pages/center-form/CenterForm";
+import CenterForm from "./pages/center/center-form/CenterForm";
 import FacultyFilledForm from "./pages/faculity/faculty-filled-form/faculty-filled-form";
 
 const RootApp = () => {
