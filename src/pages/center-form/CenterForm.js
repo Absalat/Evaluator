@@ -141,6 +141,7 @@ function CenterForm(props) {
           "Are you sure you want to submit this form ? This action is irreversible.",
         onConfirm: () => {
           props.submitSchoolEvaluation(values);
+          history.push("/center/self-evaluation/view");
         },
       });
     },

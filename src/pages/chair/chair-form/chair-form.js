@@ -103,6 +103,7 @@ const ChairForm = (props) => {
           "Are you sure you want to submit this evaluation? This action is not reverable. ",
         onConfirm: () => {
           props.submitChairSelfEvaluation(values);
+          history.push("/chair/self-evaluation/view");
         },
       });
     },
