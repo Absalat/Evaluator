@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Box,
     Button,
@@ -143,11 +143,17 @@ function CenterForm(props) {
                     "Are you sure you want to submit this form ? This action is irreversible.",
                 onConfirm: () => {
                     props.submitSchoolEvaluation(values);
-                    history.push("/center/self-evaluation/view");
                 },
             });
         },
     });
+
+    useEffect(() => {
+        if (props.schoolEvaluation.submitSuccess) {
+            //redirect to the success view page.
+            history.push("/center/self-evaluation/view");
+        }
+    }, [props.schoolEvaluation]);
 
     return (
         <>
